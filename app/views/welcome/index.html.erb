@@ -1,3 +1,26 @@
 <h1>Madeline Cann</h1>
 
-<p>5 fingers, 5 toes, 5 problems</p>
+<ul id="home-links">
+	<li>Work</li>
+	<li>About</li>
+	<li>Inspirations</li>
+	<li>Bros</li>
+</ul>
+
+
+<script>
+	$(document).ready(function(){
+		
+		$("#home-links").on("click", function(event){
+			$target = event.target
+			
+			alert($target.textContent)
+		})
+		
+	})
+
+	
+</script>
+
+
+
