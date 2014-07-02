@@ -1,20 +1,22 @@
 <h1>Madeline Cann</h1>
 
-<ul id="home-links">
+<div id="content">
 	<li>Work</li>
 	<li>About</li>
 	<li>Inspirations</li>
 	<li>Bros</li>
-</ul>
+</div>
 
 
 <script>
 	$(document).ready(function(){
 		
-		$("#home-links").on("click", function(event){
+		$("#content").on("click", function(event){
 			$target = event.target
-			
-			alert($target.textContent)
+			if ($target.textContent === "Work"){
+				
+				Maddie.initialize();
+			}
 		})
 		
 	})
