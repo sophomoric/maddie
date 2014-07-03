@@ -1,10 +1,13 @@
 Maddie.Views.ProjectsIndex = Backbone.View.extend({
 	
 	initialize: function(options){
-		this.$el = options.$rootEl
 	},
 
   template: JST['projects/index'],
+	
+	events: {
+		"click .back": "back"
+	},
 	
 	render: function() {
 		var renderedContent = this.template({
@@ -12,7 +15,15 @@ Maddie.Views.ProjectsIndex = Backbone.View.extend({
 		})
 		
 		this.$el.html(renderedContent);
+		return this;
 		
+		
+	}, 
+	
+	back: function(){
+		
+		window.Maddie.appRouter.navigate("", {trigger: true})
+		// console.log("here")
 		
 	}
 

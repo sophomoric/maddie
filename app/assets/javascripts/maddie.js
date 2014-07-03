@@ -5,7 +5,7 @@ window.Maddie = {
   Routers: {},
   initialize: function() {
 		
-		new Maddie.Routers.ProjectsRouter({
+		window.Maddie.appRouter = new Maddie.Routers.ProjectsRouter({
 			$rootEL: $('#content')
 		});
 		Backbone.history.start();
