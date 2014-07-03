@@ -1,4 +1,4 @@
-<h1>Madeline Cann</h1>
+<h1>HOME</h1>
 
 <div id="content">
 	<li>Work</li>
@@ -20,24 +20,3 @@
 	</form>
 	
 </div>
-
-
-<script>
-	$(document).ready(function(){
-		var initialized;
-		
-		$("#content").on("click", function(event){
-			$target = event.target
-			if ($target.textContent === "Work" && !initialized){
-				var initialized = true;
-				Maddie.initialize();
-			}
-		})
-		
-	})
-
-	
-</script>
-
-
-

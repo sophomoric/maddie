@@ -9,5 +9,6 @@ window.Maddie = {
 			$rootEL: $('#content')
 		});
 		Backbone.history.start();
+		
   }
 };

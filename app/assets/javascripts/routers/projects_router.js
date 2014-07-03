@@ -1,13 +1,25 @@
 Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	initialize: function(options) {
 		this.$rootEl = options.$rootEL;
+		Backbone.history.navigate("/projects", {trigger: true})
 		
 		
 	},
 
 	routes: {
 		'': 'index',
+		'home': 'home',
+		'projects': 'index',
 		'projects/:id': 'show'
+	},
+	
+	home: function(){
+		var homeView = new Maddie.Views.Home({
+			
+		});
+		
+		this._swapView(homeView);
+		
 	},
 	
   show: function (id) {
@@ -15,7 +27,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
       model: project
     });
 
-    that._swapView(showView);
+    this._swapView(showView);
   },
 	
   index: function () {

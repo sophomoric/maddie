@@ -22,7 +22,7 @@ Maddie.Views.ProjectsIndex = Backbone.View.extend({
 	
 	back: function(){
 		
-		window.Maddie.appRouter.navigate("", {trigger: true})
+		window.Maddie.appRouter.navigate("/home", {trigger: true})
 		// console.log("here")
 		
 	}
