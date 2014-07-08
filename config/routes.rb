@@ -1,5 +1,9 @@
 Maddie::Application.routes.draw do
   root to: 'welcome#index'
+  
+  namespace :api do
+    resources :projects, only: [:create, :index, :show, :destroy]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
