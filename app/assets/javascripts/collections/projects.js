@@ -4,3 +4,5 @@ Maddie.Collections.Projects = Backbone.Collection.extend({
   model: Maddie.Models.Project
 
 });
+
+Maddie.Collections.projects = new Maddie.Collections.Projects();

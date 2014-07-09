@@ -14,6 +14,9 @@ Maddie.Views.Home = Backbone.View.extend({
 		var urlEnd = event.target.textContent
 		if (urlEnd === "back"){
 			return ;
+		} else if (urlEnd === "Work"){
+			Backbone.history.navigate("/Work", {trigger: true})
+			return ;
 		}
 		
 		var swapTemp = JST[urlEnd]({});

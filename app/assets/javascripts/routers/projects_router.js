@@ -42,7 +42,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	
   index: function () {
 		var that = this;
-		var projects = new Maddie.Collections.Projects()
+		var projects = Maddie.Collections.projects;
 		projects.fetch({success: function(){
 			
 	    var indexView = new Maddie.Views.ProjectsIndex({
