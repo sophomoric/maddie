@@ -25,12 +25,10 @@
 
 <script>
 	$(document).ready(function(){
-		var initialized;
 		
 		$("#content").on("click", function(event){
 			$target = event.target
-			if ($target.textContent === "Work" && !initialized){
-				var initialized = true;
+			if ($target.textContent === "Work" && !Backbone.History.started){
 				Maddie.initialize();
 			}
 		})
