@@ -6,12 +6,12 @@ Maddie.Views.Home = Backbone.View.extend({
   template: JST['projects/home'],
 	
 	events: {
-		"click .work": "work"
+		"click button": "work"
 	},
 	
-	work: function(){
-		
-		Backbone.history.navigate("/projects", {trigger: true})
+	work: function(event){
+		var urlEnd = event.target.textContent
+		Backbone.history.navigate("/" + urlEnd, {trigger: true})
 	},
 	
 	render: function() {
