@@ -2,3 +2,8 @@
 
 <h1>Projects</h1>
 
+<% projects.forEach(function(project){ %>
+	
+	<li><%= project.escape("title") %></li>
+	
+<% }) %>

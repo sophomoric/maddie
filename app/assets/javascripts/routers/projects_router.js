@@ -31,10 +31,19 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
   },
 	
   index: function () {
-    var indexView = new Maddie.Views.ProjectsIndex({
-			$rootEl: this.$rootEl
-    });
-    this._swapView(indexView);
+		var that = this;
+		var projects = new Maddie.Collections.Projects()
+		projects.fetch({success: function(){
+			
+	    var indexView = new Maddie.Views.ProjectsIndex({
+				$rootEl: this.$rootEl, //not necessary
+				projects: projects
+	    });
+		
+	    that._swapView(indexView);
+			}
+	
+		});
   },
 	
   _swapView: function (view) {
