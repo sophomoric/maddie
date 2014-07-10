@@ -1,7 +1,7 @@
 Maddie.Views.ProjectsIndex = Backbone.View.extend({
 	
 	initialize: function(options){
-		this.projects = options.projects;
+		// options.collection = this.collection
 	},
 
   template: JST['projects/index'],
@@ -11,8 +11,9 @@ Maddie.Views.ProjectsIndex = Backbone.View.extend({
 	},
 	
 	render: function() {
+		
 		var renderedContent = this.template({
-			projects: this.projects
+			collection: this.collection
 		})
 		
 		this.$el.html(renderedContent);

@@ -2,7 +2,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	initialize: function(options) {
 		this.$rootEl = options.$rootEL;
 		Backbone.history.navigate("/projects", {trigger: true})
-		
+		this.listenTo(Maddie.Collections.projects, "sync add", this.render)
 		
 	},
 
@@ -42,18 +42,12 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	
   index: function () {
 		var that = this;
-		var projects = Maddie.Collections.projects;
-		projects.fetch({success: function(){
-			
-	    var indexView = new Maddie.Views.ProjectsIndex({
-				$rootEl: this.$rootEl, //not necessary
-				projects: projects
-	    });
+		Maddie.Collections.projects.fetch();
+    var indexView = new Maddie.Views.ProjectsIndex({
+			collection: Maddie.Collections.projects
+    });
+    that._swapView(indexView);
 		
-	    that._swapView(indexView);
-			}
-	
-		});
   },
 	
   _swapView: function (view) {
