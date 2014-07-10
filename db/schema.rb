@@ -31,7 +31,10 @@ ActiveRecord::Schema.define(version: 20140710143154) do
   create_table "projects", force: true do |t|
     t.string   "title"
     t.string   "description"
+    t.integer  "height"
+    t.integer  "width"
     t.integer  "year"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
