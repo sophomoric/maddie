@@ -7,7 +7,7 @@ Maddie.Views.NewProject = Backbone.View.extend({
 	template: JST["projects/new"],
 	
 	events: {
-		"click button": "submit"
+		"submit form": "submit"
 	},
 	
 	render: function(){
@@ -21,9 +21,14 @@ Maddie.Views.NewProject = Backbone.View.extend({
 	submit: function(){
 		event.preventDefault();
 		
-		var newProject = new Maddie.Models.Project();
-		newProject.set("title", $("#title").val());
-		newProject.set("description", $("#description").val());
+		
+		// newProject.set("title", $("#title").val());
+		// newProject.set("description", $("#description").val());
+		
+		var params = $(event.currentTarget).children().serializeJSON()
+		var newProject = new Maddie.Models.Project(params);
+		
+		
 		newProject.save({}, {
 			success: function() {
 				Maddie.Collections.projects.add(newProject)
