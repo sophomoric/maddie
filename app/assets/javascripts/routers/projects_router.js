@@ -2,7 +2,6 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	initialize: function(options) {
 		this.$rootEl = options.$rootEL;
 		Backbone.history.navigate("/projects", {trigger: true})
-		this.listenTo(Maddie.Collections.projects, "sync add", this.render)
 		
 	},
 

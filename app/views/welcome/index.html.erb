@@ -25,14 +25,7 @@
 
 <script>
 	$(document).ready(function(){
-		
-		$("#content").on("click", function(event){
-			$target = event.target
-			if ($target.textContent === "Work" && !Backbone.History.started){
-				Maddie.initialize();
-			}
-		})
-		
+			Maddie.initialize();
 	})
 
 	
