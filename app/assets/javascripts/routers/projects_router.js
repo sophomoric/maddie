@@ -1,8 +1,7 @@
 Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	initialize: function(options) {
 		this.$rootEl = options.$rootEL;
-		Backbone.history.navigate("/projects", {trigger: true})
-		
+		// Backbone.history.navigate("/projects", {trigger: true})
 	},
 
 	routes: {
@@ -18,7 +17,6 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	
 	home: function(){
 		var viewName = Backbone.history.fragment;
-		console.log(viewName)
 		function capitaliseFirstLetter(string)
 		{
 		    return string.charAt(0).toUpperCase() + string.slice(1);
@@ -40,13 +38,16 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
   },
 	
   index: function () {
-		var that = this;
 		Maddie.Collections.projects.fetch();
     var indexView = new Maddie.Views.ProjectsIndex({
 			collection: Maddie.Collections.projects
     });
-    that._swapView(indexView);
+    this._swapView(indexView);
 		
+		var newProjectView = new Maddie.Views.NewProject({
+			model: new Maddie.Models.Project()
+		})
+		this.$rootEl.append(newProjectView.render().$el)
   },
 	
   _swapView: function (view) {
