@@ -26,9 +26,9 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	},
 	
   show: function (id) {
-		var project = Maddie.Collections.projects.get(id)
+		var model = Maddie.Collections.projects.getOrFetch(id);
     var showView = new Maddie.Views.ProjectShow({
-      model: project
+      model: model
     });
 
     this._swapView(showView);

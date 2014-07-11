@@ -27,14 +27,19 @@ Maddie.Views.NewProject = Backbone.View.extend({
 		
 		var params = $(event.currentTarget).children().serializeJSON()
 		var newProject = new Maddie.Models.Project(params);
-		
+		newProject.set({year: parseInt(newProject.attributes.year)});
 		var view = this
+		debugger
 		newProject.save({}, {
 			success: function() {
 				Maddie.Collections.projects.add(newProject)
-				view.render();
+				view.render(); //clears out the form... could use val...
 			}
 		})
+	},
+	
+	validate: function(project) {
+		
 	}
 	
 })

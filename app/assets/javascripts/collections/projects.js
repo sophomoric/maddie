@@ -1,7 +1,20 @@
 Maddie.Collections.Projects = Backbone.Collection.extend({
 	url: "/api/projects",
 	
-  model: Maddie.Models.Project
+  model: Maddie.Models.Project,
+	
+	getOrFetch: function(id) {
+		var model;
+		if (model = this.get(id)){
+			return model;
+		} else {
+			model = new Maddie.Models.Project({id: id})
+			model.fetch({
+				success: function() { Maddie.Collections.projects.add(model)}
+			});
+			return model;
+		}
+	}
 
 });
 

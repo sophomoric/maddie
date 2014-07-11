@@ -3,6 +3,7 @@ Maddie.Views.ProjectShow = Backbone.View.extend({
 	initialize: function(options){
 		// options.collection = this.collection
 		this.model = options.model;
+		this.listenTo(this.model, "sync", this.render);
 	},
 
   template: JST['projects/show'],
