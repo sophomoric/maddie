@@ -4,6 +4,6 @@
 
 <% collection.forEach(function(project){ %>
 	
-	<li><%= project.escape("title") %></li>
+	<li><a href="#/projects/<%= project.get("id") %>"><%= project.escape("title") %></a></li>
 	
 <% }) %>
