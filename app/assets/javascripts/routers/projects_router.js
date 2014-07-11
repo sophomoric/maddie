@@ -45,6 +45,9 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 			model: new Maddie.Models.Project()
 		})
 		this.$rootEl.append(newProjectView.render().$el)
+		
+		var mediaIndexView = new Maddie.Views.MediaIndex({})
+		this.$rootEl.append(mediaIndexView.render().$el)
   },
 	
   _swapView: function (view) {
