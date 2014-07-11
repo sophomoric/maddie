@@ -28,10 +28,11 @@ Maddie.Views.NewProject = Backbone.View.extend({
 		var params = $(event.currentTarget).children().serializeJSON()
 		var newProject = new Maddie.Models.Project(params);
 		
-		
+		var view = this
 		newProject.save({}, {
 			success: function() {
 				Maddie.Collections.projects.add(newProject)
+				view.render();
 			}
 		})
 	}
