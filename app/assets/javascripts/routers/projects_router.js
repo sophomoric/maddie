@@ -10,6 +10,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		'inspiration': 'home',
 		'bros': 'home',
 		'work': 'index',
+		'media': 'media',
 		'projects': 'index',
 		'projects/:id': 'show'
 	},
@@ -46,9 +47,15 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		})
 		this.$rootEl.append(newProjectView.render().$el)
 		
-		var mediaIndexView = new Maddie.Views.MediaIndex({})
-		this.$rootEl.append(mediaIndexView.render().$el)
   },
+	
+	media: function(){
+		Maddie.Collections.media.fetch(); //must create that collection first...
+		var mediaIndexView = new Maddie.Views.MediaIndex({
+			collection: Maddie.Collections.media
+		})
+		this._swapView(mediaIndexView);
+	},
 	
   _swapView: function (view) {
     this._currentView && this._currentView.remove();

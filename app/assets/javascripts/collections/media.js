@@ -4,3 +4,5 @@ Maddie.Collections.Media = Backbone.Collection.extend({
   model: Maddie.Models.Medium
 
 });
+
+Maddie.Collections.media = new Maddie.Collections.Media();

@@ -1,3 +1,11 @@
 <h3>Media Index</h3>
 
 <%= JST["header"]({}) %>
+
+<ul>
+<% collection.forEach(function(medium){ %>
+
+	<li><a href="#"><%= medium.escape("name") %></a></li>
+	
+<% }) %>
+</ul>

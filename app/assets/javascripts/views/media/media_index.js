@@ -1,4 +1,8 @@
 Maddie.Views.MediaIndex = Backbone.View.extend({
+	
+	initialize: function(){
+		this.listenTo(this.collection, "sync", this.render)
+	},
 
   template: JST['media/index'],
 	
