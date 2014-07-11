@@ -11,6 +11,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		'bros': 'home',
 		'work': 'index',
 		'media': 'media',
+		'media/:id': 'mediaShow',
 		'projects': 'index',
 		'projects/:id': 'show'
 	},
@@ -55,6 +56,13 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 			collection: Maddie.Collections.media
 		})
 		this._swapView(mediaIndexView);
+	},
+	
+	mediaShow: function(id){
+		//GET OR FETCH FOR MEDIA HERE to pass in model below
+		var mediaShowView = new Maddie.Views.MediaShow({
+			
+		})
 	},
 	
   _swapView: function (view) {
