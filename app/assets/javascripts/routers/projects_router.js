@@ -6,23 +6,20 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 
 	routes: {
 		'': 'index',
-		'Home': 'home',
-		'About': 'home',
-		'Inspiration': 'home',
-		'Bros': 'home',
-		'Work': 'index',
+		'home': 'home',
+		'about': 'home',
+		'inspiration': 'home',
+		'bros': 'home',
+		'work': 'index',
 		'projects': 'index',
 		'projects/:id': 'show'
 	},
 	
 	home: function(){
 		var viewName = Backbone.history.fragment;
-		function capitaliseFirstLetter(string)
-		{
-		    return string.charAt(0).toUpperCase() + string.slice(1);
-		}
-		var homeView = new Maddie.Views[capitaliseFirstLetter(viewName)]({
-			
+		
+		var homeView = new Maddie.Views.Home({
+			templateName: viewName
 		});
 		
 		this._swapView(homeView);
