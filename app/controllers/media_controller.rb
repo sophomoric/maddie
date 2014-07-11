@@ -4,10 +4,16 @@ class Api::MediaController < ApplicationController
     
     if @media.save
       render json: @media
+    else
+      render json: {}, status: :unprocessable_entity
     end
   end
   
   def destroy
     
+  end
+  
+  def media_params
+    params.require(:media).permit(:name, :description)
   end
 end
