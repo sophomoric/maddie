@@ -60,9 +60,11 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	
 	mediaShow: function(id){
 		//GET OR FETCH FOR MEDIA HERE to pass in model below
+		var model = Maddie.Collections.media.getOrFetch(id);
 		var mediaShowView = new Maddie.Views.MediaShow({
-			
-		})
+			model: model
+		});
+		this._swapView(mediaShowView)
 	},
 	
   _swapView: function (view) {

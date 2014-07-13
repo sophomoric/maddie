@@ -1,12 +1,17 @@
 class Api::MediaController < ApplicationController
   def create
-    @medium = Media.new(media_params)
+    @medium = Medium.new(media_params)
     
     if @medium.save
       render json: @medium
     else
       render json: {}, status: :unprocessable_entity
     end
+  end
+  
+  def show
+    @medium = Medium.find(params[:id])
+    render json: @medium
   end
   
   def destroy
