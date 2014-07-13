@@ -13,7 +13,6 @@ Maddie.Views.ProjectShow = Backbone.View.extend({
 	},
 	
 	render: function() {
-		
 		var renderedContent = this.template({
 			model: this.model
 		})
