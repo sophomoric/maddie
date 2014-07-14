@@ -1,0 +1,8 @@
+<h1>Index.html.erb</h1>
+
+<% @projects.each do |project| %>
+
+<%= project.title %>
+<img src="<%= project.avatar.url %>">
+
+<% end %>
