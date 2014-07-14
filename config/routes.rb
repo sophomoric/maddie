@@ -1,7 +1,7 @@
 Maddie::Application.routes.draw do
   root to: 'welcome#index'
   
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :projects, only: [:create, :index, :show, :destroy] do
       resources :medias_projects, only: [:create]
     end
