@@ -6,3 +6,14 @@
 
 <p><%= model.escape("year") %></p>
 
+
+
+<% if (model.get("media")){ %>
+
+	<% model.get("media").forEach(function(medium){ %>
+
+	<li><%= medium.name %></li>
+	
+	<% }) %>
+	
+<% } %>
