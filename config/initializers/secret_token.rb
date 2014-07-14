@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Maddie::Application.config.secret_key_base = '87710063e401e0128f8b2ac9b7844e5becbe5efa0751b0ebdfee770a3704cfa0d53eaf4aebf3e4bbdb5ab08964de8db8bdaaa2399ae5003f5dfca386bf1d623b'
+Maddie::Application.config.secret_key_base = ENV["SECRET_TOKEN"]

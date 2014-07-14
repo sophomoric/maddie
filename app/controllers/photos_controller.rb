@@ -5,9 +5,14 @@ class PhotosController < ApplicationController
   
   def create
     project = Project.find(params[:project_id])
-    photo = project.photos.new(photo_params)
-    photo.save
-    redirect_to photos_url
+    @photo = project.photos.new(photo_params)
+    if @photo.save
+      flash[:messages] = ["You added a photo to " + project.title + ". Add another?"]
+    else
+      flash[:errors] = @photo.errors.full_messages
+    end
+    redirect_to :back
+    
   end
 
   def index
