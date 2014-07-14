@@ -11,6 +11,7 @@ class Api::MediaController < ApplicationController
   
   def show
     @medium = Medium.find(params[:id])
+    @projects = @medium.projects
     render "show"
   end
   

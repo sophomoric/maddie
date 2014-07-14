@@ -16,6 +16,7 @@ class Api::ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
+    @media = @project.media
     render "show"
   end
   
