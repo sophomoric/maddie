@@ -9,7 +9,9 @@ Maddie::Application.routes.draw do
     resources :medias_projects, only: [:destroy]
   end
   
-  resources :projects, only: [:new, :create, :index]
+  resources :projects, only: [:show] do
+    resources :photos, only: [:create]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
