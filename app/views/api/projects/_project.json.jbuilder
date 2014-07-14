@@ -1,0 +1,1 @@
+json.(project, :id, :title, :description, :height, :width, :created_at, :updated_at)

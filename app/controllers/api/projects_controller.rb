@@ -3,7 +3,7 @@ class Api::ProjectsController < ApplicationController
     @project = Project.new(project_params)
     
     if @project.save
-      render json: @project
+      render "show"
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -11,12 +11,12 @@ class Api::ProjectsController < ApplicationController
   
   def index
     @projects = Project.all.includes(:media)
-    render :json => @projects
+    render "index"
   end
   
   def show
     @project = Project.find(params[:id])
-    render :json => @project
+    render "show"
   end
   
   def destroy
