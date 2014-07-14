@@ -1,0 +1,8 @@
+<form action="<%= project_photos_url(params[:project_id]) %>" method="post" enctype="multipart/form-data">
+	<%= auth_token %>
+	
+	<label for="avatar">Picture</label>
+	<input id="avatar" name="photo[avatar]" type="file">
+
+ <button>Create Photo</button>
+</form>
