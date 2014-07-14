@@ -46,6 +46,7 @@ gem "backbone-on-rails"
 
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk', '~> 1.5.7'
+gem "figaro"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
