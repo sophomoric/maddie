@@ -7,6 +7,6 @@
 <h3>Projects</h3>
 <% model.projects().forEach(function(project){ %>
 
-<li><a href="#/media/<%= project.get("id") %>"><%= project.escape("title") %></a></li>
+<li><a href="#/projects/<%= project.get("id") %>"><%= project.escape("title") %></a></li>
 
 <% }) %>
