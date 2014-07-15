@@ -4,3 +4,12 @@
 
 <%= model.escape("name") %>
 
+<% if (model.get("projects")){ %>
+
+	<% model.get("projects").forEach(function(project){ %>
+
+	<li><%= project.title %></li>
+	
+	<% }) %>
+	
+<% } %>

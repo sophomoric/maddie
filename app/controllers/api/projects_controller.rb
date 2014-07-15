@@ -10,7 +10,7 @@ class Api::ProjectsController < ApplicationController
   end
   
   def index
-    @projects = Project.all.includes(:media)
+    @projects = Project.all
     render "index"
   end
   
