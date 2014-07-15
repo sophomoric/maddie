@@ -11,6 +11,16 @@ Maddie.Models.Project = Backbone.Model.extend({
 		return this._media;
 	},
 	
+	photos: function() {
+		if (!this._photos){
+			this._photos = new Maddie.Collections.Photo([], {
+				project: this
+			})
+		}
+		
+		return this._photos
+	},
+	
 	parse: function(jsonResp){
 		if (jsonResp.media){
 			this.media().set(jsonResp.media);
