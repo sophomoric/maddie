@@ -8,12 +8,9 @@
 
 
 
-<% if (model.get("media")){ %>
+<h3>Tags</h3>
+<% model.media().forEach(function(medium){ %>
 
-	<% model.get("media").forEach(function(medium){ %>
+<li><a href="#/media/<%= medium.get("id") %>"><%= medium.escape("name") %></a></li>
 
-	<li><%= medium.name %></li>
-	
-	<% }) %>
-	
-<% } %>
+<% }) %>
