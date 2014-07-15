@@ -13,7 +13,7 @@ Maddie.Models.Project = Backbone.Model.extend({
 	
 	photos: function() {
 		if (!this._photos){
-			this._photos = new Maddie.Collections.Photo([], {
+			this._photos = new Maddie.Collections.Photos([], {
 				project: this
 			})
 		}
@@ -26,6 +26,12 @@ Maddie.Models.Project = Backbone.Model.extend({
 			this.media().set(jsonResp.media);
 			delete jsonResp.media
 		}
+		
+		if (jsonResp.photos){
+			this.photos().set(jsonResp.photos);
+			delete jsonResp.photos
+		}
+		
 		return jsonResp
 	}
 });

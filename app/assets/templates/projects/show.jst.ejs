@@ -6,6 +6,13 @@
 
 <p><%= model.escape("year") %></p>
 
+<% model.photos().forEach(function(photo){ %>
+
+	<img src="<%= photo.get("avatar") %>">
+
+<% }) %>
+
+
 <a href="/projects/<%= model.get("id") %>/photos/new">Link to Picture Upload!</a>
 
 
