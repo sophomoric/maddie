@@ -4,7 +4,7 @@ Maddie.Models.Project = Backbone.Model.extend({
 	media: function() {
 		if (!this._media){
 			this._media = new Maddie.Collections.Media([], {
-				project: this
+				projects: this.collection
 			})
 		}
 		
