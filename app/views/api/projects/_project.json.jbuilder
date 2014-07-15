@@ -6,3 +6,10 @@ unless media.nil?
 		json.partial!("api/media/medium", :medium => medium)
 	end
 end
+
+photos ||= nil
+unless photos.nil?
+	json.photos(photos) do |photo|
+		json.partial!("api/photos/photo", :photo => photo)
+	end
+end
