@@ -1,5 +1,5 @@
 Maddie.Models.Project = Backbone.Model.extend({
-	urlRoot: "/api/projects"
+	urlRoot: "/api/projects",
 	
 	media: function() {
 		if (!this._media){
@@ -9,5 +9,13 @@ Maddie.Models.Project = Backbone.Model.extend({
 		}
 		
 		return this._media;
+	},
+	
+	parse: function(jsonResp){
+		if (jsonResp.media){
+			this.media().set(jsonResp.media);
+			delete jsonResp.media
+		}
+		return jsonResp
 	}
 });
