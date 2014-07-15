@@ -21,7 +21,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'ejs'
-
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
@@ -44,6 +43,7 @@ gem "paperclip", "~> 4.1"
 gem 'aws-sdk', '~> 1.5.7'
 gem "figaro"
 
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
