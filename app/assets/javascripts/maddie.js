@@ -4,7 +4,10 @@ window.Maddie = {
   Views: {},
   Routers: {},
   initialize: function() {
-		
+		# Be sure to restart your server when you modify this file.
+
+Maddie::Application.config.session_store :cookie_store, key: '_maddie_session'
+
 		window.Maddie.appRouter = new Maddie.Routers.ProjectsRouter({
 			$rootEL: $('#content')
 		});
@@ -12,3 +15,25 @@ window.Maddie = {
 		
   }
 };
+
+Backbone.CompositeView = Backbone.View.extend({
+	addSubview: function(selector, view) {
+		var selectorSubviews = this.subviews()[selector] || (this.subviews()[selector] = []);
+		selectorSubviews.push(view)
+	},
+	
+	renderSubviews: function() {
+		_(this.subviews).each(function(selectorSubviews, selector){
+			_(selectorSubviews).each(function (subview) {
+				subview.render();
+			});
+		});
+	},
+	
+	subviews: function(){
+		if (!this._subviews){
+			this._subviews = {}
+		}
+		return this._subviews;
+	}
+})
