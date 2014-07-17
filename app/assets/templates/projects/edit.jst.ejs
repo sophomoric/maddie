@@ -1,0 +1,14 @@
+<form enctype="multipart/form-data">
+	<label for="title">Title</label>
+	<input id="title" type="text" name="title" value="<%= model.escape("title") %>">
+
+	<label for="description">Description</label>
+	<input id="description" type="text" name="description">
+	
+	<label for="date">Year Created</label>
+	<input id="date" type="text" name="year">
+
+ <button>Create Project</button>
+</form>
+
+<button class="cancel">Cancel</button>

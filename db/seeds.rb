@@ -15,5 +15,8 @@ all_tags.each do |tag_name|
   Medium.create({:name => tag_name})
 end
 
-painting = Project.create({title: "A painting of a Duck", description: "Quack Quack Quack I say"})
+painting = Project.create({title: "A painting of a Duck", description: "Quack Quack Quack I say", year: 2000, height: 10, width: 10})
 painting.media = Medium.all
+
+other = Project.create({title: "A painting of Chicken", description: "BRAWK BRAWK I say", year: 2001, height: 20, width: 10})
+other.media = Medium.all

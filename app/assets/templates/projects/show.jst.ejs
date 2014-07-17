@@ -1,14 +1,16 @@
-<h1><%= model.escape("title") %></h1>
-
 <button class="back">Back</button>
+<button class="edit-mode">Edit Mode</button>
+
+<h1><%= model.escape("title") %></h1>
 
 <p><%= model.escape("description") %></p>
 
 <p><%= model.escape("year") %></p>
 
+
 <% model.photos().forEach(function(photo){ %>
 
-	<img src="<%= photo.get("avatar") %>">
+	<img src="<%= photo.get("avatar") %>" width="200" height="200">
 
 <% }) %>
 
