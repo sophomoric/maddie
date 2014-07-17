@@ -21,6 +21,17 @@ class Api::ProjectsController < ApplicationController
     render "show"
   end
   
+  def update
+    @project = Project.find(params[:id])
+    @media = @project.media
+    if @project.update_attributes(params[:project])
+      render "show"
+    else
+      render @project.errors, status: :unprocessable_entity
+    end
+    
+  end
+  
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
