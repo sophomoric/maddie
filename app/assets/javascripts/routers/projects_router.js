@@ -43,6 +43,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
     });
     this._swapView(indexView);
 		
+		//fix with composite view tutorial
 		var newProjectView = new Maddie.Views.NewProject({
 			model: new Maddie.Models.Project()
 		})
@@ -55,7 +56,15 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		var mediaIndexView = new Maddie.Views.MediaIndex({
 			collection: Maddie.Collections.media
 		})
+		
 		this._swapView(mediaIndexView);
+		
+		//fix with composite view tutorial
+		var newMediaView = new Maddie.Views.MediaNew({
+			model: new Maddie.Models.Medium()
+		})
+		this.$rootEl.append(newMediaView.render().$el)
+		
 	},
 	
 	mediaShow: function(id){

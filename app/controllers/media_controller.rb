@@ -25,6 +25,6 @@ class Api::MediaController < ApplicationController
   end
   
   def media_params
-    params.require(:media).permit(:name, :description)
+    params.require(:medium).permit(:name, :description)
   end
 end
