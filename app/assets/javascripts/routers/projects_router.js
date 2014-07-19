@@ -18,10 +18,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	
 	home: function(){
 		
-		
-		var homeView = new Maddie.Views.Home({
-			
-		});
+		var homeView = new Maddie.Views.Home({});
 		
 		this._swapView(homeView);
 		
