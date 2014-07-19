@@ -9,9 +9,9 @@
 <p><%= model.escape("year") %></p>
 
 
-<% model.photos().forEach(function(photo){ %>
+<% model.photos().each(function(photo){ %>
 
-	<img src="<%= photo.get("avatar") %>" width="200" height="200">
+	<a href="<%= photo.url() %>"><img src="<%= photo.get("avatar") %>" width="200" height="200"></a>
 
 <% }) %>
 
@@ -21,7 +21,7 @@
 
 
 <h3>Tags</h3>
-<% model.media().forEach(function(medium){ %>
+<% model.media().each(function(medium){ %>
 
 <li><a href="#/media/<%= medium.get("id") %>"><%= medium.escape("name") %></a></li>
 
