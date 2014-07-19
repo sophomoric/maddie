@@ -29,7 +29,7 @@ Maddie.Views.NewProject = Backbone.View.extend({
 		var newProject = new Maddie.Models.Project(params);
 		newProject.set({year: parseInt(newProject.attributes.year)});
 		var view = this
-		debugger
+		
 		newProject.save({}, {
 			success: function() {
 				Maddie.Collections.projects.add(newProject)

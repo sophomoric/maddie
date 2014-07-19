@@ -17,7 +17,9 @@ Maddie.Views.ProjectShow = Backbone.View.extend({
 	events: {
 		"click .back": "back",
 		"click .edit-mode": "beginEditing",
-		"click .cancel": "cancelEdit"
+		"click .cancel": "cancelEdit",
+		"submit form": "submit",
+		"click .delete": "deleteProject"
 	},
 	
 	render: function() {
@@ -46,6 +48,19 @@ Maddie.Views.ProjectShow = Backbone.View.extend({
 	cancelEdit: function(){
 		this.open = false;
 		this.render();
+	},
+	
+	submit: function(){
+		event.preventDefault();
+		
+	},
+	
+	deleteProject: function() {
+		this.model.destroy({
+			success: function(){
+				window.Maddie.appRouter.navigate("", {trigger: true})
+			}
+		})
 	}
 
 });
