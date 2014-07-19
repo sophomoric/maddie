@@ -17,10 +17,10 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	},
 	
 	home: function(){
-		var viewName = Backbone.history.fragment;
+		
 		
 		var homeView = new Maddie.Views.Home({
-			templateName: viewName
+			
 		});
 		
 		this._swapView(homeView);

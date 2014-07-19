@@ -1,14 +1,15 @@
 Maddie.Views.Home = Backbone.View.extend({
 	
-	initialize: function(options){
-		this.template = JST[options.templateName]
+	template: function(){
+		var viewName = Backbone.history.fragment;
+		return JST[viewName];
 	},
 	
 	events: {
 	},
 	
 	render: function() {
-		var renderedContent = this.template({
+		var renderedContent = this.template()({
 			
 		})
 		
