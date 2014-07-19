@@ -8,7 +8,12 @@ Maddie.Views.ProjectsIndex = Backbone.View.extend({
   template: JST['projects/index'],
 	
 	events: {
-		"click .back": "back"
+		"click .back": "back",
+		"click .yearSort": "yearSort"
+	},
+	
+	yearSort: function(){
+		
 	},
 	
 	render: function() {
