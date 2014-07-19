@@ -1,8 +1,6 @@
 Maddie.Views.Home = Backbone.View.extend({
 	
-	template: function(){
-		return JST["about"];
-	},
+	template: JST["about"],
 	
 	events: {
 	},
