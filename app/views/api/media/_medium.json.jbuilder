@@ -1,4 +1,4 @@
-json.(medium, :id, :name, :description, :created_at, :updated_at)
+json.(medium, :id, :name, :description, :avatar, :created_at, :updated_at)
 
 projects ||= nil
 unless projects.nil?

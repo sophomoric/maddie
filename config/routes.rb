@@ -14,7 +14,7 @@ Maddie::Application.routes.draw do
     resources :photos, only: [:new, :create]
   end
   
-  resources :photos, only: [:index] #delete later
+  # resources :media, only: [:edit, :update]
   resources :session
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,4 +13,8 @@ class Medium < ActiveRecord::Base
     end
   end
   
+  def default_image
+    "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
+  end
+  
 end

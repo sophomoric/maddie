@@ -9,10 +9,10 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		'about': 'home',
 		'inspiration': 'home',
 		'bros': 'home',
-		'work': 'index',
-		'media': 'media',
+		'work': 'mediaIndex',
+		'media': 'mediaIndex',
 		'media/:id': 'mediaShow',
-		'projects': 'index',
+		'projects': 'projectsIndex',
 		'projects/:id': 'show'
 	},
 	
@@ -39,7 +39,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
     this._swapView(showView);
   },
 	
-  index: function () {
+  projectsIndex: function () {
 		Maddie.Collections.projects.fetch();
     var indexView = new Maddie.Views.ProjectsIndex({
 			collection: Maddie.Collections.projects
@@ -54,7 +54,8 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		
   },
 	
-	media: function(){
+	mediaIndex: function(){
+		
 		Maddie.Collections.media.fetch(); //must create that collection first...
 		var mediaIndexView = new Maddie.Views.MediaIndex({
 			collection: Maddie.Collections.media
