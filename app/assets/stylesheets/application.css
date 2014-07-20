@@ -10,5 +10,42 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap.min
+ *=// require bootstrap.min
  */
+
+html, body, header, footer, section, article, div,
+strong, a, img, p, h1, h2, h3, h4, time, ul, li,
+form, label, button, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+.home-nav li {
+	text-align: center;
+	font-size: 40px;
+	display: block;
+}
+
+.home-nav li a {
+	color: gray;
+	text-decoration: none;
+}
+
+.home-nav li a:hover {
+	color: #979797;
+	text-decoration: none;
+}
+
+h1 {
+	text-align: center;
+	font-size: 40px;
+}
+
+.hide {
+	display: none;
+}

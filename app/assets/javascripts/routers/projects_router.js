@@ -4,7 +4,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	},
 
 	routes: {
-		'': 'index',
+		'': 'homeScreen',
 		'home': 'home',
 		'about': 'home',
 		'inspiration': 'home',
@@ -14,6 +14,12 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		'media/:id': 'mediaShow',
 		'projects': 'index',
 		'projects/:id': 'show'
+	},
+	
+	homeScreen: function() {
+		var homeView = new Maddie.Views.HomeScreenView({});
+		
+		this._swapView(homeView);
 	},
 	
 	home: function(){
