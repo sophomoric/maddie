@@ -2,10 +2,10 @@
 
 <%= JST["header"]({}) %>
 
-<ul>
-<% collection.forEach(function(medium){ %>
+<ul class="photo-list">
+	<% collection.forEach(function(medium){ %>
 
-	<li><a href="#/media/<%= medium.get("id") %>"><img src="<%= medium.get("avatar_styles").thumb %>" width=200 height="200"></a></li>
+		<li><a href="#/media/<%= medium.get("id") %>"><img src="<%= medium.get("avatar_styles").thumb %>" width=200 height="200"></a></li>
 	
-<% }) %>
+	<% }) %>
 </ul>

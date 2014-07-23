@@ -24,6 +24,10 @@ form, label, button, input {
   vertical-align: baseline;
 }
 
+li {
+	list-style: none;
+}
+
 
 .home-nav li {
 	text-align: center;
@@ -48,4 +52,16 @@ h1 {
 
 .hide {
 	display: none;
+}
+
+/*media index*/
+
+.photo-list {
+	margin: auto;
+	width: 700px;
+}
+
+.photo-list li {
+	float: left;
+	margin: 10px;
 }
