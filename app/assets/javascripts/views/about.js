@@ -6,14 +6,15 @@ Maddie.Views.About = Backbone.View.extend({
 	},
 	
 	template: function(){
-		return JST[this.templateName];
+		return JST["static/" + this.templateName];
 	},
 
 	render: function() {
 		console.log("render: templateName: ", this.templateName);
 		var renderedContent = this.template({});
-		
+		console.log("renderedContent: ", renderedContent);
 		this.$el.html(renderedContent);
+		
 		return this;
 		
 		

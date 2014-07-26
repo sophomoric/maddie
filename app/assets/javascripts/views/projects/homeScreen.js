@@ -1,6 +1,6 @@
 Maddie.Views.HomeScreenView = Backbone.View.extend({
 	
-	template: JST["home"],
+	template: JST["static/home"],
 
 	render: function() {
 		var renderedContent = this.template({});
