@@ -9,7 +9,7 @@ Maddie.Views.About = Backbone.View.extend({
 	},
 
 	render: function() {
-		
+		debugger
 		var renderedContent = this.template({});
 		
 		this.$el.html(renderedContent);
