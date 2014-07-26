@@ -5,10 +5,10 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 
 	routes: {
 		'': 'homeScreen',
-		'home': 'home',
-		'about': 'home',
-		'inspiration': 'home',
-		'bros': 'home',
+		'home': 'homeScreen',
+		'about': 'about',
+		'inspiration': 'inspiration',
+		'bros': 'bros',
 		'work': 'mediaIndex',
 		'media': 'mediaIndex',
 		'media/:id': 'mediaShow',
@@ -22,12 +22,25 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		this._swapView(homeView);
 	},
 	
-	home: function(){
-		
-		var homeView = new Maddie.Views.Home({});
-		
-		this._swapView(homeView);
-		
+	about: function(){
+		var about = new Maddie.Views.About({
+			templateName: "about"
+		});
+		this._swapView(about);
+	},
+	
+	bros: function(){
+		var about = new Maddie.Views.About({
+			templateName: "bros"
+		});
+		this._swapView(about);
+	},
+	
+	inspiration: function(){
+		var about = new Maddie.Views.About({
+			templateName: "inspiration"
+		});
+		this._swapView(about);
 	},
 	
   show: function (id) {
