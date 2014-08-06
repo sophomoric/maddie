@@ -16,7 +16,7 @@ Maddie::Application.routes.draw do
   
   # resources :media, only: [:edit, :update]
   namespace :devise do
-    resources :session
+    resources :sessions, only: [:create, :destroy, :new]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
