@@ -36,7 +36,6 @@ Maddie.Views.ProjectShow = Backbone.View.extend({
 	back: function(){
 		
 		window.Maddie.appRouter.navigate("", {trigger: true})
-		// console.log("here")
 		
 	},
 	
