@@ -1,5 +1,6 @@
 Maddie::Application.routes.draw do
-  # devise_for :users
+  devise_for :users
+    
   root to: 'welcome#index'
   
   namespace :api, defaults: { format: :json } do
@@ -15,9 +16,6 @@ Maddie::Application.routes.draw do
   end
   
   # resources :media, only: [:edit, :update]
-  namespace :devise do
-    resources :sessions, only: [:create, :destroy, :new]
-  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

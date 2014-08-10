@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_filter :authenticate_user!,
+      :only => [:destroy, :create]
   def new
     
   end

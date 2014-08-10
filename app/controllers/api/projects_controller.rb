@@ -1,4 +1,6 @@
 class Api::ProjectsController < ApplicationController
+  before_filter :authenticate_user!,
+      :only => [:destroy, :create]
   def create
     @project = Project.new(project_params)
     

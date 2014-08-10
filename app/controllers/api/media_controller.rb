@@ -1,4 +1,6 @@
 class Api::MediaController < ApplicationController
+  before_filter :authenticate_user!,
+      :only => [:destroy, :create]
   def create
     @medium = Medium.new(media_params)
     
