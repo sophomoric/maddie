@@ -1,5 +1,5 @@
 Maddie::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :skip => [:registrations, :passwords]
     
   root to: 'welcome#index'
   
