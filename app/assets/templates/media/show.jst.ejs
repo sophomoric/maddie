@@ -3,6 +3,7 @@
 <a href="#/media">back</a>
 
 <%= model.escape("name") %>
+<img src="<%= model.get("avatar_styles").thumb %>" width=200 height="200">
 
 <h3>Projects</h3>
 <% model.projects().forEach(function(project){ %>

@@ -20,3 +20,6 @@ painting.media = Medium.all
 
 other = Project.create({title: "A painting of Chicken", description: "BRAWK BRAWK I say", year: 2001, height: 20, width: 10})
 other.media = Medium.all
+
+# Medium.create(name: "rails pic test", avatar: File.open("/Users/adriancann/Downloads/solutions-master/w7/w7d1/phototaggr/app/assets/images/rails.png"))
+#seed in production
