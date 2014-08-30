@@ -1,6 +1,5 @@
 Maddie.Models.Photo = Backbone.Model.extend({
 	
-	urlRoot: "/api/projects",
-	
+	urlRoot: "/api/photos"
 
 });

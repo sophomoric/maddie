@@ -7,9 +7,7 @@ unless media.nil?
 	end
 end
 
-photos ||= nil
-unless photos.nil?
-	json.photos(photos) do |photo|
-		json.partial!("api/photos/photo", :photo => photo)
-	end
+photos = project.photos
+json.photos(photos) do |photo|
+	json.partial!("api/photos/photo", :photo => photo)
 end
