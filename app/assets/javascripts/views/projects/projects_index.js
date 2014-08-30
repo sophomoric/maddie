@@ -1,7 +1,7 @@
 Maddie.Views.ProjectsIndex = Backbone.View.extend({
 	
 	initialize: function(options){
-		// options.collection = this.collection
+		this.collection = options.collection
 		this.listenTo(this.collection, "sync add", this.render)
 	},
 
