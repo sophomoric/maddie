@@ -11,9 +11,9 @@
 	</div>
 </div>
 
-
 <script>
 	$(document).ready(function(){
+	  window.hash = { "current_user": <%= current_user ? current_user.to_json.html_safe : false %> }
 			Maddie.initialize();
 	})
 
