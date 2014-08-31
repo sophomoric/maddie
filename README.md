@@ -15,4 +15,3 @@
 - Needs Contact info page (maybe a form to email)
 - Links to purchase
 
-- figure out scripts to deploy on paid hosting

@@ -15,13 +15,12 @@
 # gem 'pg'
 #
 development:
-  adapter: mysql2
-  database: db_maddie_development
+  adapter: postgresql
+  encoding: unicode
+  database: maddie_development
   pool: 5
-  username: root
+  username: adriancann
   password:
-  host: localhost
-  socket:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -45,19 +44,17 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: mysql2
-  database: db_maddie_test
+  adapter: postgresql
+  encoding: unicode
+  database: maddie_test
   pool: 5
-  username: root
+  username: adriancann
   password:
-  host: localhost
-  socket:
 
 production:
-  adapter: mysql2
-  database: db_maddie_production
+  adapter: postgresql
+  encoding: unicode
+  database: maddie_production
   pool: 5
-  username: root
+  username: adriancann
   password:
-  host: localhost
-  socket:
