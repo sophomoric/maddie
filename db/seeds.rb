@@ -5,14 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/#{file_name}"))
+end
+
 tags = ["for sale", "not for sale", "sold"]
 
-media = ["oil paint", "charcoal", "pencil", "acrylic"]
+media = ["charcoal", "metal", "oil paint", "pencil"]
 
-all_tags = tags + media
+avatar = ["charcoal.jpg", "metal.jpg", "oilpaint.jpg", "pencil.jpg", "bagelbighter.jpg", "bagelbighter.jpg", "bagelbighter.jpg"]
 
-all_tags.each do |tag_name|
-  Medium.create({:name => tag_name})
+all_tags = media + tags
+
+all_tags.count.times do |number|
+  Medium.create({:name => all_tags[number], :avatar => seed_image(avatar[number])})
 end
 
 painting = Project.create({title: "A painting of a Duck", description: "Quack Quack Quack I say", year: 2000, height: 10, width: 10})
