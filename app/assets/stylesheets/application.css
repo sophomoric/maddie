@@ -134,19 +134,19 @@ label {
 
 /*projects inde*/
 
-li.project {
+li.project, li.medium {
 	height: 300px;
 	width: 300px;
 	background: black;
 }
 
-li.project a {
+li.project a, li.medium a {
 	width: auto;
 	height: auto;
 	margin: auto;
 }
 
-li.project a img {
+li.project a img, li.medium a img {
 	display: block;
 	margin: auto;
 	margin-top: auto;
