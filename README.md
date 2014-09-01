@@ -18,4 +18,6 @@
 - User should be able to add tags to projects (Dropdown list of tags to add.. or radio button)
 - elegent way to handle scrolling. load first pictures of a project (high def) in order going down.
 
-- NOW need to create different jbuilder files becuase show image page should have actual FULL SIZE images but index pages should not!!!
+- Hover over a medium. have medium appear as h1 tag on page
+
+- Rather than change picture sizes on index page (dont set img height, width) but have the css styling arrange to bufffer the space (ensure square).

@@ -5,7 +5,12 @@
 <ul class=project-list>
 	<% collection.forEach(function(project){ %>
 		
-		<li class="project"><a href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar_styles").medium %>" height="200" width="200"></a></li>
+		<li class="project" style="display: table; height: 300px; #position: relative; overflow: hidden;">
+			<div style=" #position: absolute; #top: 50%;display: table-cell; vertical-align: middle;">
+				<a style=" #position: relative; #top: -50%" href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar_styles").medium %>">
+				</a>
+			</div>
+		</li>
 	
 	<% }) %>
 </ul>

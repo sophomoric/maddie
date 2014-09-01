@@ -58,7 +58,7 @@ h1 {
 
 .photo-list, .project-list {
 	margin: auto;
-	width: 700px;
+	width: 1000px;
 }
 
 .photo-list li, .project-list li {
@@ -134,6 +134,24 @@ label {
 
 /*projects inde*/
 
-.project-list .project {
-	float: left;
+li.project {
+	height: 300px;
+	width: 300px;
+	background: black;
 }
+
+li.project a {
+	width: auto;
+	height: auto;
+	margin: auto;
+}
+
+li.project a img {
+	display: block;
+	margin: auto;
+	margin-top: auto;
+}
+
+/*.middle {
+	position: absolute;
+}*/
