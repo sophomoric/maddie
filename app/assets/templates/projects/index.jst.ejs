@@ -2,10 +2,12 @@
 
 <h1>Projects</h1>
 
-<% collection.forEach(function(project){ %>
+<ul class=project-list>
+	<% collection.forEach(function(project){ %>
 		
-	<li><a href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar") %>" height="100" width="100"></a></li>
+		<li class="project"><a href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar") %>" height="200" width="200"></a></li>
 	
-<% }) %>
+	<% }) %>
+</ul>
 
 <a href="#/media">See Media!</a>

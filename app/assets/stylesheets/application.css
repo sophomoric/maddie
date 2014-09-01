@@ -56,12 +56,12 @@ h1 {
 
 /*media index*/
 
-.photo-list {
+.photo-list, .project-list {
 	margin: auto;
 	width: 700px;
 }
 
-.photo-list li {
+.photo-list li, .project-list li {
 	float: left;
 	margin: 10px;
 }
@@ -130,3 +130,10 @@ label {
 }
 
 /*SIGN IN FORM*/
+
+
+/*projects inde*/
+
+.project-list .project {
+	float: left;
+}
