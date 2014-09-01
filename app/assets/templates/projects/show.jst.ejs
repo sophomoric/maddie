@@ -12,7 +12,7 @@
 
 <% model.photos().each(function(photo){ %>
 
-	<a href="<%= photo.url() %>"><img src="<%= photo.get("avatar") %>" width="200" height="200"></a>
+	<a href="<%= photo.url() %>"><img src="<%= photo.get("avatar_styles").full %>"></a>
 
 <% }) %>
 

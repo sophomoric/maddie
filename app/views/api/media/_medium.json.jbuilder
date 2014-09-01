@@ -2,7 +2,8 @@ json.(medium, :id, :name, :description, :avatar, :created_at, :updated_at)
 
 json.avatar_styles do
 	json.thumb medium.avatar.url(:thumb)
-	
+	json.medium medium.avatar.url(:medium)
+	json.full medium.avatar.url(:auto_bg)
 end
 
 projects ||= nil

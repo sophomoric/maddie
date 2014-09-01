@@ -5,7 +5,7 @@
 <ul class=project-list>
 	<% collection.forEach(function(project){ %>
 		
-		<li class="project"><a href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar") %>" height="200" width="200"></a></li>
+		<li class="project"><a href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar_styles").medium %>" height="200" width="200"></a></li>
 	
 	<% }) %>
 </ul>

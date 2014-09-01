@@ -22,6 +22,11 @@ def seed_image(subfolder, file_name)
   File.open(File.join(Rails.root, "/app/assets/images/ArtPortfolio/Adrian/" + subfolder + "/#{file_name}"))
 end
 
+def find_or_create_medium(medium)
+  medium = Medium.find_by_name(medium)
+  medium ||= Medium.create(name: medium)
+end
+
 Dir.entries("app/assets/images/ArtPortfolio/Adrian").each do |entry|
   next if entry[0] == "."
   project = Project.create({title: entry, description: "blah blah this is art. you should probably change the default description"})

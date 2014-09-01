@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   belongs_to :project
   
   before_validation :make_url_image
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :auto_bg => "auto_bg" }, :default_url => "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
   

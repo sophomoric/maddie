@@ -3,14 +3,14 @@
 <a href="#/media">back</a>
 
 <%= model.escape("name") %>
-<img src="<%= model.get("avatar_styles") && model.get("avatar_styles").thumb %>" width=200 height="200">
+<img src="<%= model.get("avatar_styles") && model.get("avatar_styles").thumb %>">
 
 <h3>Projects</h3>
 <% model.projects().forEach(function(project){ %>
 
 <li><a href="#/projects/<%= project.get("id") %>"><%= project.escape("title") %></a>
 	
-	<img src="<% project.photos().first() && project.photos().first().get("avatar_styles") && project.photos().first().get("avatar_styles").thumb %>">
+	<img src="<% project.photos().first() && project.photos().first().get("avatar_styles") && project.photos().first().get("avatar_styles").full %>">
 
 </li>
 

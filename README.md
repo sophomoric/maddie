@@ -15,3 +15,7 @@
 - Needs Contact info page (maybe a form to email)
 - Links to purchase
 
+- User should be able to add tags to projects (Dropdown list of tags to add.. or radio button)
+- elegent way to handle scrolling. load first pictures of a project (high def) in order going down.
+
+- NOW need to create different jbuilder files becuase show image page should have actual FULL SIZE images but index pages should not!!!
