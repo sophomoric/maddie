@@ -11,6 +11,10 @@ Maddie::Application.routes.draw do
     resources :medias_projects, only: [:destroy]
   end
   
+  resources :media, only: [] do
+    resources :media_photos, only: [:new, :create]
+  end
+  
   resources :projects, only: [] do
     resources :photos, only: [:new, :create]
   end

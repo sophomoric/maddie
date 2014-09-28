@@ -28,6 +28,7 @@ class Api::MediaController < ApplicationController
     render "index"
   end
   
+  private
   def media_params
     params.require(:medium).permit(:name, :description, :avatar)
   end

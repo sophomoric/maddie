@@ -1,0 +1,2 @@
+module MediaPhotosHelper
+end
