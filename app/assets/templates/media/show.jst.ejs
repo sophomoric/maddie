@@ -5,6 +5,8 @@
 <%= model.escape("name") %>
 <img src="<%= model.get("avatar_styles") && model.get("avatar_styles").thumb %>">
 
+<button id="delete-medium" class="current_user">DELETE MEDIA</button>
+
 <h3>Projects</h3>
 <% model.projects().forEach(function(project){ %>
 

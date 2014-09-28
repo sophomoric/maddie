@@ -14,8 +14,15 @@ Maddie.Views.MediaShow = Backbone.View.extend({
 		
 		this.$el.html(renderedContent);
 		return this;
-		
-		
+	},
+	
+	events: {
+		"click #delete-medium": "deleteMedium"
+	},
+	
+	deleteMedium: function() {
+		this.model.destroy()
+		Maddie.appRouter.navigate("#/media", { trigger: true })
 	}
 
 });
