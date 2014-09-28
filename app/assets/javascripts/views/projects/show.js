@@ -57,7 +57,7 @@ Maddie.Views.ProjectShow = Backbone.View.extend({
 	deleteProject: function() {
 		this.model.destroy({
 			success: function(){
-				window.Maddie.appRouter.navigate("", {trigger: true})
+				window.Maddie.appRouter.navigate("#/projects", {trigger: true})
 			}
 		})
 	}

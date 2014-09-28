@@ -7,7 +7,7 @@
 		
 		<li class="project" style="display: table; height: 300px; #position: relative; overflow: hidden;">
 			<div style=" #position: absolute; #top: 50%;display: table-cell; vertical-align: middle;">
-				<a style=" #position: relative; #top: -50%" href="#/projects/<%= project.get("id") %>"><img src="<%= project.photos().first() && project.photos().first().get("avatar_styles").medium %>">
+				<a style=" #position: relative; #top: -50%" href="#/projects/<%= project.get("id") %>"><img src="<%= (project.photos().first() && project.photos().first().get("avatar_styles").medium) || "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275" %>">
 				</a>
 			</div>
 		</li>
