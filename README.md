@@ -21,3 +21,8 @@
 - Hover over a medium. have medium appear as h1 tag on page
 
 - Rather than change picture sizes on index page (dont set img height, width) but have the css styling arrange to bufffer the space (ensure square).
+
+- Add cv section
+- (maybe add a thing to add sections)
+- make different section texts loadable..
+- each project photo has its own info page... (rebecca has many photos per project that are projects of their own)

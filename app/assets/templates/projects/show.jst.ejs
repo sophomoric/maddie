@@ -1,7 +1,7 @@
 
 <button class="back">Back</button>
-<button class="edit-mode">Edit Mode</button>
-<button class="delete">Delete</button>
+<button class="edit-mode <%= Maddie.helpers["currentUserClass"]() %>">Edit Mode</button>
+<button class="delete <%= Maddie.helpers["currentUserClass"]() %>">Delete</button>
 
 <h1><%= model.escape("title") %></h1>
 
@@ -16,9 +16,9 @@
 
 <% }) %>
 
-
-<a href="/projects/<%= model.get("id") %>/photos/new">Link to Picture Upload!</a>
-
+<div class="<%= Maddie.helpers["currentUserClass"]() %>">
+	<a href="/projects/<%= model.get("id") %>/photos/new">Link to Picture Upload!</a>
+</div>
 
 
 <h3>Tags</h3>

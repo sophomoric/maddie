@@ -161,3 +161,7 @@ li.project a img, li.medium a img {
 		width: 400px;
 	}
 }
+
+.not-logged-in {
+	display: none;
+}

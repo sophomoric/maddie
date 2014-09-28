@@ -34,3 +34,15 @@ Backbone.CompositeView = Backbone.View.extend({
 		return this._subviews;
 	}
 })
+
+Maddie.helpers = {
+	currentUserClass: function(){
+		if (globalHash["currentUser"]) {
+			return "logged-in"
+		} else {
+			return "not-logged-in"
+		}
+	}
+}
+
+// Maddie.helpers["currentUserClass"]

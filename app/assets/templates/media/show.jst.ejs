@@ -5,7 +5,7 @@
 <%= model.escape("name") %>
 <img src="<%= model.get("avatar_styles") && model.get("avatar_styles").thumb %>">
 
-<button id="delete-medium" class="current_user">DELETE MEDIA</button>
+<button id="delete-medium" class="<%= Maddie.helpers["currentUserClass"]() %>">DELETE MEDIA</button>
 
 <h3>Projects</h3>
 <% model.projects().forEach(function(project){ %>
@@ -18,4 +18,6 @@
 
 <% }) %>
 
-<a href="/media/<%= model.get("id") %>/media_photos/new">Link to Picture Upload!</a>
+<div class="<%= Maddie.helpers["currentUserClass"]() %>">
+	<a href="/media/<%= model.get("id") %>/media_photos/new" >Link to Picture Upload!</a>
+</div>

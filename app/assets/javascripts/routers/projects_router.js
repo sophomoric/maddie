@@ -60,6 +60,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
     this._swapView(indexView);
 		
 		//fix with composite view tutorial
+		if (!globalHash["currentUser"]) { return ; };
 		var newProjectView = new Maddie.Views.NewProject({
 			model: new Maddie.Models.Project()
 		})
@@ -77,6 +78,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		this._swapView(mediaIndexView);
 		
 		//fix with composite view tutorial
+		if (!globalHash["currentUser"]) { return ; };
 		var newMediaView = new Maddie.Views.MediaNew({
 			model: new Maddie.Models.Medium()
 		})
