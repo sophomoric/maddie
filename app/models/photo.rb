@@ -12,4 +12,8 @@ class Photo < ActiveRecord::Base
       self.avatar = open(self.avatar, allow_redirections: :safe)
     end
   end
+  
+  def suggested_photo_based_on_size
+    self.avatar.size < 30000 ? self.avatar.url(:auto_bg) : self.avatar.url(:medium)
+  end
 end
