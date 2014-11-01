@@ -27,3 +27,10 @@
 <li><a href="#/media/<%= medium.get("id") %>"><%= medium.escape("name") %></a></li>
 
 <% }) %>
+
+<div class="<%= Maddie.helpers["currentUserClass"]() %>">
+	<form>
+		<label for="tag-name">Tag Name</label>
+		<input id="tag-name" name="tag[name]">
+	</form>
+</div>
