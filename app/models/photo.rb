@@ -6,7 +6,6 @@ class Photo < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
   
-  
   def make_url_image
     if self.avatar.class == String
       self.avatar = open(self.avatar, allow_redirections: :safe)
