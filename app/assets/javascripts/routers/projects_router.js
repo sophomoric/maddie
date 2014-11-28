@@ -9,7 +9,7 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 		'about': 'about',
 		'inspiration': 'inspiration',
 		'bros': 'bros',
-		'work': 'mediaIndex',
+		'work': 'projectsIndex',
 		'media': 'mediaIndex',
 		'media/:id': 'mediaShow',
 		'projects': 'projectsIndex',
