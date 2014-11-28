@@ -6,14 +6,24 @@ class Project < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   
   def generate_photo_url
-    #make defualt url
-    if self.photo_url
-      self.photo_url
+    if !photos?
+      default_photo_url
+    elsif !photo_url?
+      photo_url = photos.first.suggested_photo_based_on_size
+      save!
+      photo_url
     else
-      self.photo_url = self.photos.first.suggested_photo_based_on_size
-      self.save
-      self.photo_url
+      photo_url
     end
+  end
+  
+  private
+  def photos?
+    photos.any?
+  end
+  
+  def photo_url?
+    !!photo_url
   end
   
   def default_photo_url
