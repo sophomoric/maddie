@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.Jcrop.min
 //= require jquery.serializejson
 //= require jquery_ujs
 //= require underscore
