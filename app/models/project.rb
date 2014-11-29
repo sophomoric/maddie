@@ -4,12 +4,14 @@ class Project < ActiveRecord::Base
   
   has_and_belongs_to_many :media
   has_many :photos, dependent: :destroy
+  after_create :generate_photo_url
   
+  private
   def generate_photo_url
     if !photos?
       default_photo_url
     elsif !photo_url?
-      photo_url = photos.first.suggested_photo_based_on_size
+      self.photo_url = photos.first.suggested_photo_based_on_size
       save!
       photo_url
     else
@@ -17,7 +19,6 @@ class Project < ActiveRecord::Base
     end
   end
   
-  private
   def photos?
     photos.any?
   end

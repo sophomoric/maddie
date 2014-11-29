@@ -1,8 +1,9 @@
+# Run from rails console
 def seed_image(file_name)
   File.open(File.join(Rails.root, "/app/assets/images/#{file_name}"))
 end
-
-Medium.destroy_all
+puts "here"
+# Medium.destroy_all
 
 tags = ["for sale", "not for sale", "sold"]
 
@@ -14,10 +15,11 @@ all_tags = media + tags
 
 all_tags.count.times do |number|
   Medium.create({:name => all_tags[number], :avatar => seed_image(avatar[number])})
+  puts "media #{number} created"
 end
 
-Photo.destroy_all
-Project.destroy_all
+# Photo.destroy_all
+# Project.destroy_all
 def seed_image(subfolder, file_name)
   File.open(File.join(Rails.root, "/app/assets/images/ArtPortfolio/Adrian/" + subfolder + "/#{file_name}"))
 end
