@@ -28,3 +28,5 @@
 - each project photo has its own info page... (rebecca has many photos per project that are projects of their own)
 
 -rebecca has most recent version of app... update at madelinecann.com
+
+-cropping all versions of photo (maybe save different versions. but have one marked as cropped)
