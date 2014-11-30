@@ -1,7 +1,4 @@
 module AttachAvatar
-  # include AbstractController::Callbacks
-  # extend ActiveSupport::Concern
-  
   def self.included(base)
     base.before_validation :make_url_image
     base.has_attached_file :avatar,
@@ -19,8 +16,4 @@ module AttachAvatar
       self.avatar = open(self.avatar, allow_redirections: :safe)
     end
   end
-end
-
-module Cropable
-  
 end
