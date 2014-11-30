@@ -19,8 +19,12 @@ class PhotosController < ApplicationController
       flash[:errors] = @photo.errors.full_messages
       redirect_to :back
     end
-    
-    
+  end
+  
+  def update
+    @photo = Photo.find(params[:id])
+    @photo.update(cropping_dimensions)
+    redirect_to :back
   end
 
   def index
@@ -28,7 +32,12 @@ class PhotosController < ApplicationController
   end
   
   private
+  
   def photo_params
     params.require(:photo).permit(:avatar)
+  end
+  
+  def cropping_dimensions
+    params.require(:photo).permit(:crop_x, :crop_y, :crop_w, :crop_h)
   end
 end

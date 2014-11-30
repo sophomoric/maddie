@@ -12,6 +12,11 @@ class Photo < ActiveRecord::Base
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :reprocess_avatar, :if => :cropping?
+  
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
   
   def make_url_image
     if self.avatar.class == String
@@ -22,4 +27,11 @@ class Photo < ActiveRecord::Base
   def suggested_photo_based_on_size
     self.avatar.size < 30000 ? self.avatar.url(:auto_bg) : self.avatar.url(:medium)
   end
+  
+  private
+  
+  def reprocess_avatar
+    puts "reprocessing avatar"
+    avatar.reprocess!
+  end 
 end
