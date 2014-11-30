@@ -9,7 +9,7 @@ class Medium < ActiveRecord::Base
                                  :auto_bg => "auto_bg" 
                                }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
   
   
   def make_url_image

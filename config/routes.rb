@@ -15,9 +15,14 @@ Maddie::Application.routes.draw do
     resources :media_photos, only: [:new, :create]
   end
   
+  resources :photos, only: [:update] do
+  end
+  
   resources :projects, only: [] do
     resources :photos, only: [:new, :create]
   end
+  
+  get "crop/:id" => 'photos#crop'
   
   get 'help' => 'welcome#index', as: 'help'
   # resources :media, only: [:edit, :update]
