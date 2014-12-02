@@ -7,7 +7,6 @@ class Project < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   after_create :generate_photo_url
   
-  private
   def generate_photo_url
     if !photos?
       default_photo_url
@@ -20,15 +19,16 @@ class Project < ActiveRecord::Base
     end
   end
   
+  def default_photo_url
+    "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
+  end
+  private
+  
   def photos?
     photos.any?
   end
   
   def photo_url?
     !!photo_url
-  end
-  
-  def default_photo_url
-    "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
   end
 end

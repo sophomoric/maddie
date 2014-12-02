@@ -12,7 +12,7 @@ class Api::ProjectsController < ApplicationController
   end
   
   def index
-    @projects = Project.joins(:photos)
+    @projects = Project.all.includes(:photos)
     render "index"
   end
   
