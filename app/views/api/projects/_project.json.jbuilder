@@ -1,4 +1,4 @@
-json.(project, :id, :title, :description, :year, :height, :width, :created_at, :updated_at)
+json.(project, :id, :title, :description, :year, :height, :width, :created_at, :updated_at, :photo_url)
 
 media ||= nil
 unless media.nil?
