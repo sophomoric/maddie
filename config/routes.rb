@@ -1,8 +1,8 @@
 Maddie::Application.routes.draw do
   devise_for :users, :skip => [:registrations, :passwords]
-    
+
   root to: 'welcome#index'
-  
+
   namespace :api, defaults: { format: :json } do
     resources :projects, only: [:create, :index, :update, :show, :destroy] do
       resources :medias_projects, only: [:create]
@@ -10,20 +10,20 @@ Maddie::Application.routes.draw do
     resources :media, only: [:create, :index, :show, :destroy]
     resources :medias_projects, only: [:destroy]
   end
-  
+
   resources :media, only: [] do
     resources :media_photos, only: [:new, :create]
   end
-  
+
   resources :photos, only: [:update] do
   end
-  
+
   resources :projects, only: [] do
     resources :photos, only: [:new, :create]
   end
-  
+
+  get "projects/crop/:id" => 'photos#crop'
   get "crop/:id" => 'photos#crop'
-  
   get 'help' => 'welcome#index', as: 'help'
   # resources :media, only: [:edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.

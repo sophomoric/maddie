@@ -10,6 +10,11 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  def crop
+    @project = Project.find(params[:id])
+    # binding.pry
+  end
+
   def index
     @projects = Project.all.includes(:photos)
     render "index"
@@ -44,6 +49,10 @@ class Api::ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:title, :description, :year, :height, :width, :avatar)
+  end
+
+  def cropping_dimensions
+    params.require(:photo).permit(:crop_x, :crop_y, :crop_w, :crop_h)
   end
 
   def update_avatar

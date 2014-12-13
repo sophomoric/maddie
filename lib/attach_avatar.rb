@@ -1,7 +1,7 @@
 module AttachAvatar
   def self.included(base)
     base.before_validation :make_url_image
-    base.has_attached_file :avatar,
+    base.has_attached_file :avatar, processors: [:cropper],
                       :styles => {
                                   :medium => "300x300>",
                                   :thumb => "100x100>",

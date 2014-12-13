@@ -2,6 +2,7 @@
 <button class="back">Back</button>
 <button class="edit-mode <%= Maddie.helpers["currentUserClass"]() %>">Edit Mode</button>
 <button class="delete <%= Maddie.helpers["currentUserClass"]() %>">Delete</button>
+<a href="projects/crop/<%= model.get("id") %>">Crop Main Photo</a>
 
 <h1><%= model.escape("title") %></h1>
 
