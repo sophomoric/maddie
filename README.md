@@ -30,4 +30,13 @@
 -rebecca has most recent version of app... update at madelinecann.com
 
 -cropping all versions of photo (maybe save different versions. but have one marked as cropped)
-- make main project photo not the first of its photos (one must set it creating a new project... then use the cropping screen)
+
+Smarter organization... what controller should crop the main project photo? not the api::projects... cropping controller maybe? and there should be some cropping concerns...
+both photo avatar and project avatar should have the same cropping logic to keep things DRY...
+
+CroppingController
+
+model can be Project or Photo or User (later)
+
+
+Add tests?

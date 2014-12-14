@@ -12,6 +12,7 @@ class Api::ProjectsController < ApplicationController
 
   def crop
     @project = Project.find(params[:id])
+
     # binding.pry
   end
 
