@@ -1,2 +1,29 @@
-Hello There
-<img src="<%= project.get("photo_url") %>">
+<img src="<%= project.get("photo_url") && project.get("photo_url").replace("medium", "auto_bg") %>" id="cropbox">
+<!-- Temporary (send big photo_url with all projects...) -->
+
+<form accept-charset="UTF-8" action="/photos/106" class="edit_photo" id="crop_form" method="post">
+		<input id="crop_x" name="photo[crop_x]" type="hidden" value="318">
+		<input id="crop_y" name="photo[crop_y]" type="hidden" value="432">
+		<input id="crop_w" name="photo[crop_w]" type="hidden" value="728">
+		<input id="crop_h" name="photo[crop_h]" type="hidden" value="728">
+		<button>Crop</button>
+</form>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready( function() {
+		$("#cropbox").Jcrop({
+			onChange: update_crop,
+			onSelect: update_crop,
+			setSelect: [0, 0, 500, 500],
+			aspectRatio: 1
+		});
+	});
+
+	function update_crop(coords) {
+		$("#crop_x").val(coords.x);
+		$("#crop_y").val(coords.y);
+		$("#crop_w").val(coords.w);
+		$("#crop_h").val(coords.h);
+
+	}
+</script>
