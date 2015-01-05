@@ -40,3 +40,5 @@ model can be Project or Photo or User (later)
 
 
 Add tests?
+
+Move from AWS (free 12 month trial must end in May...)
