@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
       :only => [:destroy, :create]
 
   def new
+    @project = Project.find(params[:project_id])
   end
 
   def crop
@@ -13,7 +14,7 @@ class PhotosController < ApplicationController
     project = Project.find(params[:project_id])
     @photo = project.photos.new(photo_params)
     if @photo.save
-      flash[:messages] = ["You added a photo to " + project.title + ". Add another?"]
+      flash[:messages] = ["You added a photo to " + project.title + ". Crop It!"]
       render :crop
     else
       flash[:errors] = @photo.errors.full_messages
@@ -22,12 +23,14 @@ class PhotosController < ApplicationController
   end
 
   def update
-    @photo = Photo.find(params[:id])
-    if @photo.update(cropping_dimensions)
-      @photo.reprocess_avatar
-      redirect_to :back
+    photo = Photo.find(params[:id])
+    if photo.update(cropping_dimensions)
+      photo.reprocess_avatar
+      flash[:messages] = ["You added a photo to #{photo.project.title}. Add another?"]
+      redirect_to new_project_photo_url(photo.project)
     else
-      render json: @photo.errors, status: :unprocessable_entity
+      flash[:messages] = [photo.errors]
+      render :crop
     end
 
   end

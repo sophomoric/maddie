@@ -1,6 +1,6 @@
 <form action="<%= project_photos_url(params[:project_id]) %>" method="post" enctype="multipart/form-data">
 	<%= auth_token %>
-	
+
 	<label for="avatar">Picture</label>
 	<input id="avatar" name="photo[avatar]" type="file">
 
@@ -8,3 +8,9 @@
 </form>
 
 <a href="/#/projects/<%= params[:project_id] %>">Show Project</a>
+
+<% unless @project.photos.empty? %>
+  <% @project.photos.each do |photo| %>
+    <a href="/#/projects/<%= @project.id %>"><img src="<%= photo.avatar.url(:medium) %>"></a>
+  <% end %>
+<% end %>
