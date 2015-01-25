@@ -1,23 +1,23 @@
 <div class="container-fluid">
 	<div id="content">
-		<button class="btn btn-default">Work</button>
-		<button class="btn btn-default">About</button>
-		<button class="btn btn-default">Inspiration</button>
-		<button class="btn btn-default">Bros</button>
-	
-	
-		
-	
+    <!-- Not Rendered if Javascript enabled -->
+    <%# @pages.each do |page| %>
+      <a href=""><%#= page.title %></a>
+    <%# end %>
+
+
+
+
 	</div>
 </div>
 
 <script>
-	$(document).ready(function(){
-	  window.globalHash = { "currentUser": <%= current_user ? current_user.to_json.html_safe : false %> }
-			Maddie.initialize();
-	})
+  $(document).ready(function(){
+    window.globalHash = { "currentUser": <%= current_user ? current_user.to_json.html_safe : false %> }
+      Maddie.initialize();
+  })
 
-	
+
 </script>
 
 

@@ -9,7 +9,7 @@ window.Maddie = {
 			$rootEL: $('#content')
 		});
 		Backbone.history.start();
-		
+
   }
 };
 
@@ -18,7 +18,7 @@ Backbone.CompositeView = Backbone.View.extend({
 		var selectorSubviews = this.subviews()[selector] || (this.subviews()[selector] = []);
 		selectorSubviews.push(view)
 	},
-	
+
 	renderSubviews: function() {
 		_(this.subviews).each(function(selectorSubviews, selector){
 			_(selectorSubviews).each(function (subview) {
@@ -26,7 +26,7 @@ Backbone.CompositeView = Backbone.View.extend({
 			});
 		});
 	},
-	
+
 	subviews: function(){
 		if (!this._subviews){
 			this._subviews = {}

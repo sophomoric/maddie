@@ -1,8 +1,11 @@
-<div class="containter" id="content">
-	<ul class="unstyled home-nav">
-		<li><a href="#/work">Work</a></li>
-		<li><a href="#/about">About</a></li>
-		<li><a href="#/bros">Bros</a></li>
-		<li><a href="#/inspiration">Inspiration</a></li>
-	</ul>
-</div>
+<ul class="unstyled home-nav">
+  <% pages.forEach(function(page){ %>
+    <% if(page){ %>
+      <li>
+        <a href="/#/<%= page.escape("title") %>"><%= page.escape("title") %></a>
+      </li>
+    <% } %>
+
+
+  <% }) %>
+</ul>

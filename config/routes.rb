@@ -9,6 +9,7 @@ Maddie::Application.routes.draw do
     end
     resources :media, only: [:create, :index, :show, :destroy]
     resources :medias_projects, only: [:destroy]
+    resources :pages, only: [:index, :show]
   end
 
   resources :media, only: [] do
