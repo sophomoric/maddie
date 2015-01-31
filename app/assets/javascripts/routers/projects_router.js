@@ -18,11 +18,16 @@ Maddie.Routers.ProjectsRouter = Backbone.Router.extend({
 	},
 
 	pages: function() {
+    var that = this;
     var pages = Maddie.Collections.pages
-    pages.fetch();
-		var homeView = new Maddie.Views.HomeScreenView({collection: pages});
-
-		this._swapView(homeView);
+    pages.fetch({
+      success: function() {
+    		var pageView = new Maddie.Views.PageView({
+    		  collection: pages
+    		})
+        that._swapView(pageView);
+      }
+    });
 	},
 
 	about: function(){
