@@ -19,9 +19,7 @@ Maddie::Application.routes.draw do
   resources :photos, only: [:update] do
   end
 
-  resources :projects, only: [] do
-    resources :photos, only: [:new, :create]
-  end
+  resources :projects
 
   get "projects/crop/:id" => 'projects#crop'
   get "crop/:id" => 'photos#crop'
