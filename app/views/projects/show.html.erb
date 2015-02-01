@@ -1,1 +1,14 @@
-HELLO THERE
+<h1><%= @project.title %></h1>
+
+<p><%= @project.description %></p>
+
+
+<%= image_tag(@project.avatar.url) %>
+
+<ul>
+  <% if @project.photos.any? %>
+    <% @project.photos.each do |photo| %>
+      <%= image_tag(photo.avatar.url(:medium)) %>
+    <% end %>
+  <% end %>
+</ul>

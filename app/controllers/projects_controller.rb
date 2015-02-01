@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def new
-    @project = Project.new
+    @project = Project.build
   end
 
   def create
@@ -11,6 +11,10 @@ class ProjectsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def show
+    @project = Project.find(params[:id])
   end
 
   def edit
@@ -30,6 +34,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :avatar)
+    params.require(:project).
+     permit(:title, :description, :avatar, photos_attributes: [:avatar])
   end
 end

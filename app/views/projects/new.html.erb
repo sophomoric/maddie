@@ -23,10 +23,16 @@
   </div>
 
   <div>
-    <%= f.label :avatar %>
+    <%= f.label :cover_photo %>
     <%= f.file_field :avatar %>
   </div>
 
+  <%= f.fields_for :photos do |ff| %>
+    <div>
+      <%= ff.label :photo %>
+      <%= ff.file_field :avatar %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
