@@ -48,6 +48,10 @@ gem "figaro"
 
 gem 'devise'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
