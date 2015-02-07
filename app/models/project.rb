@@ -6,7 +6,13 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :media
 
   has_many :photos, dependent: :destroy
-  # accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos
+
+  def self.build
+    project = self.new
+    project.photos.new
+    project
+  end
 
   def cover_photo
     photo_url || avatar.url
