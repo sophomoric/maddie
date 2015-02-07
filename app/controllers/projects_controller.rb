@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!,
+      :only => [:destroy, :create, :update]
+
   def new
     @project = Project.build
   end
