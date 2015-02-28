@@ -1,4 +1,5 @@
 Maddie::Application.routes.draw do
+  get "pages/index"
   devise_for :users, :skip => [:registrations, :passwords]
 
   root to: 'welcome#index'
@@ -20,6 +21,8 @@ Maddie::Application.routes.draw do
   end
 
   resources :projects
+
+  resources :pages, only: [:index, :create, :update, :destroy]
 
   get "projects/crop/:id" => 'projects#crop'
   get "crop/:id" => 'photos#crop'
