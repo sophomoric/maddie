@@ -16,7 +16,8 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     @page.update(page_params)
-    redirect_to :back
+    @pages = Page.all
+    render "index"
   end
 
   def destroy

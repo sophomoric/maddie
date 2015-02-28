@@ -28,5 +28,15 @@ RSpec.describe PagesController, :type => :controller do
       expect(Page.count).to eq(1)
     end
   end
+  describe "Page Update" do
+    it "updates a page" do
+      sign_in_and_stub(@user)
+      page = create(:page)
+      attributes =  { title: "Beep", body: "Boop" }
 
+      post :update, { page: attributes, id: page.id }
+      expect(Page.count).to eq(1)
+      expect(Page.first.title).to eq("Beep")
+    end
+  end
 end
