@@ -8,7 +8,9 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-    redirect_to :back
+    @page.save
+    @pages = Page.all
+    render "index"
   end
 
   def update
