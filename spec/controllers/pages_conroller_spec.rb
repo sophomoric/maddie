@@ -12,8 +12,10 @@ RSpec.describe PagesController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do
+      sign_in_and_stub(@user)
+
       get :index
-      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:index)
     end
   end
 
@@ -22,6 +24,7 @@ RSpec.describe PagesController, :type => :controller do
       sign_in_and_stub(@user)
       @request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
       attributes =  { title: "Tiffan stinks", body: "blah blah blah", order: 1}
+
       post :create, { page: attributes }
       expect(Page.count).to eq(0)
     end
