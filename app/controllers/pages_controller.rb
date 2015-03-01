@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @page = Page.new
+    @page = Page.next_page
     render_pages
   end
 
@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   private
 
   def render_pages
-    @pages = Page.all
+    @pages = Page.ordered_pages
     render "index"
   end
 
