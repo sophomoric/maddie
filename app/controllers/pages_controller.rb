@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   def destroy
     page = Page.find(params[:id])
     page.destroy
-    render_pages
+    redirect_to :back
   end
 
   private

@@ -1,6 +1,7 @@
 <h1>Pages</h1>
 <% @pages.each do |page| %>
   <%= render partial: "page_form", locals: { page: page } %>
+  <%= button_to "delete", page_url(page), method: :delete %>
 <% end %>
 
 <h2>New Page</h2>

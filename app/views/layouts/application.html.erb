@@ -9,7 +9,7 @@
 <body>
 	<% if current_user %>
 		<%= button_to "logout", destroy_user_session_path, method: :delete %>
-    <%= link_to "Edit This Menu", pages_url %>
+    <%= link_to "Edit Menu", pages_url %>
     <%= link_to "New Project", new_project_url %>
     <%= link_to "All Projects", projects_url %>
 	<% end %>
