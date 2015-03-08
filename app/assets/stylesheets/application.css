@@ -90,7 +90,7 @@ input[type="submit"], button, .button_to, .navbar ul li {
 	width: 300;
 	height: 300;
   margin: 0;
-	
+
 	font-color: #7F8FA0;
 }
 
@@ -103,7 +103,7 @@ input[type="submit"], button, .button_to, .navbar ul li {
   border-radius: 5px;
   font-weight: bold;
   box-shadow: 0 4px 0 0 #226690;
-	
+
 	font-family: sans-serif;
 	font-size: 20px;
 }
