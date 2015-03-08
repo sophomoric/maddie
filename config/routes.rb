@@ -20,7 +20,7 @@ Maddie::Application.routes.draw do
   resources :photos, only: [:update] do
   end
 
-  resources :projects
+  resources :projects, except: [:index]
 
   resources :pages, only: [:index, :create, :update, :destroy]
 

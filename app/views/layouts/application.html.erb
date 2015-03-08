@@ -9,8 +9,11 @@
 <body>
 	<% if current_user %>
 		<%= button_to "logout", destroy_user_session_path, method: :delete %>
+    <%= link_to "Edit This Menu", pages_url %>
+    <%= link_to "New Project", new_project_url %>
+    <%= link_to "All Projects", projects_url %>
 	<% end %>
-	
+
   <% if flash[:errors] %>
   	<ul class="error-list">
     <% flash[:errors].each do |error| %>
@@ -18,7 +21,7 @@
     <% end %>
     	</ul>
   <% end %>
-	
+
   <% if flash[:messages] %>
   	<ul class="message-list">
     <% flash[:messages].each do |message| %>
@@ -26,16 +29,13 @@
     <% end %>
     	</ul>
   <% end %>
-	
+
 	<% if notice %>
 	  <p class="alert alert-success"><%= notice %></p>
 	<% end %>
 	<% if alert %>
 	  <p class="alert alert-danger"><%= alert %></p>
 	<% end %>
-	
-	
-
 <%= yield %>
 
 </body>
