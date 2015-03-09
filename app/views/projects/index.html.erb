@@ -1,7 +1,11 @@
-<% @projects.each do |project| %>
-  <a href="<%= project_url(project) %>">
-    <p><%= project.title %></p>
-    <p><%= project.description %></p>
-    <%= image_tag(project.avatar.url(:medium)) %>
-  </a>
-<% end %>
+<ul>
+  <% @projects.each do |project| %>
+    <li class="project">
+      <a href="<%= project_url(project) %>">
+        <p><%= project.title %></p>
+        <p><%= project.description %></p>
+        <%= image_tag(project.avatar.url(:medium)) %>
+      </a>
+    </li>
+  <% end %>
+</ul>

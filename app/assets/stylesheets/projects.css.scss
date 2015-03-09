@@ -1,3 +1,25 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project {
+  width: 700px;
+  height: 300px;
+}
+
+/*show*/
+.project-photos {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.photo {
+  float: left;
+}
+
+.main-photo div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
