@@ -1,14 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.5'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
-
-# Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -31,11 +27,8 @@ group :doc do
 end
 
 group :development do
-  gem 'pry-debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'debugger'
-  gem "letter_opener"
 end
 
 gem 'rails_12factor', group: :production
@@ -54,6 +47,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
+
+gem "redcarpet"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
