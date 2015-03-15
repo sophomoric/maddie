@@ -6,7 +6,7 @@ module ApplicationHelper
     value="#{form_authenticity_token}">
     HTML
   end
-  
+
   def resource_name
     :user
   end

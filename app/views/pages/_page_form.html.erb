@@ -3,10 +3,14 @@
   <%= f.text_field :title %>
 
   <%= f.label :body %>
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
 
   <%= f.label :order %>
   <%= f.text_field :order %>
 
   <%= f.submit %>
 <% end %>
+
+<div class="preview">
+  <%= MarkdownHelper.new(page.body).render %>
+</div>
