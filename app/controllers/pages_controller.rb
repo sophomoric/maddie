@@ -8,13 +8,21 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-    @page.save
+    if @page.save
+      flash[:messages] << "Page Saved"
+    else
+      flash[:messages] = @page.errors.full_messages
+    end
     render_pages
   end
 
   def update
     @page = Page.find(params[:id])
-    @page.update(page_params)
+    if @page.update(page_params)
+      flash[:messages] << "Page Updated"
+    else
+      flash[:messages] = @page.errors.full_messages
+    end
     render_pages
   end
 
