@@ -1,9 +1,12 @@
 <div class="container-fluid">
 	<div id="content">
-    <!-- Not Rendered if Javascript enabled -->
-    <%# @pages.each do |page| %>
-      <a href=""><%#= page.title %></a>
-    <%# end %>
+    <ul class="unstyled home-nav">
+      <% @pages.each do |page| %>
+        <li>
+          <%= link_to page.title, "#{pages_url}/#{(page.url_key || "")}" %>
+        </li>
+      <% end %>
+    </ul>
 
 
 
@@ -14,7 +17,7 @@
 <script>
   $(document).ready(function(){
     window.globalHash = { "currentUser": <%= current_user ? current_user.to_json.html_safe : false %> }
-      Maddie.initialize();
+      // Maddie.initialize();
   })
 
 

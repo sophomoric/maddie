@@ -22,8 +22,12 @@ RSpec.describe PagesController, :type => :controller do
   describe "Page create" do
     it "creates a page" do
       sign_in_and_stub(@user)
-      attributes =  { title: "Tiffan stinks", body: "blah blah blah", order: 1}
-
+      attributes = {
+        title: "Tiffan stinks",
+        body: "blah blah blah",
+        order: 1,
+        url_key: "stinker"
+      }
       post :create, { page: attributes }
       expect(Page.count).to eq(1)
     end
