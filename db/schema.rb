@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150118195037) do
+ActiveRecord::Schema.define(version: 20150320000409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,11 @@ ActiveRecord::Schema.define(version: 20150118195037) do
     t.string   "title",      default: "", null: false
     t.text     "body",       default: "", null: false
     t.integer  "order",                   null: false
+    t.string   "route"
+    t.string   "url_key"
   end
+
+  add_index "pages", ["url_key"], name: "index_pages_on_url_key", unique: true, using: :btree
 
   create_table "photos", force: true do |t|
     t.integer  "project_id"

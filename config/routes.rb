@@ -24,6 +24,8 @@ Maddie::Application.routes.draw do
 
   resources :pages, only: [:index, :create, :update, :destroy]
 
+  get "pages/:url_key" => "welcome#show"
+
   get "projects/crop/:id" => 'projects#crop'
   get "crop/:id" => 'photos#crop'
   get 'help' => 'welcome#index', as: 'help'
