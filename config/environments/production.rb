@@ -1,4 +1,5 @@
 Maddie::Application.configure do
+  Rails.application.routes.default_url_options[:host] = "www.madelinecann.com"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
