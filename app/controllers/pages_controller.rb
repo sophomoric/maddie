@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
+  def new
+    @page = Page.next_page
+  end
 
   def index
     @page = Page.next_page
@@ -10,20 +13,26 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     if @page.save
       flash[:messages] = ["Page Saved"]
+      redirect_to pages_url
     else
       flash[:messages] = @page.errors.full_messages
+      render :new
     end
-    render_pages
+  end
+
+  def edit
+    @page = Page.find(params[:id])
   end
 
   def update
     @page = Page.find(params[:id])
     if @page.update(page_params)
       flash[:messages] = ["Page Updated"]
+      redirect_to pages_url
     else
       flash[:messages] = @page.errors.full_messages
+      render :edit
     end
-    render_pages
   end
 
   def destroy
