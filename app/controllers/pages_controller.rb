@@ -38,7 +38,7 @@ class PagesController < ApplicationController
   def destroy
     page = Page.find(params[:id])
     page.destroy
-    redirect_to :back
+    redirect_to pages_url
   end
 
   private
