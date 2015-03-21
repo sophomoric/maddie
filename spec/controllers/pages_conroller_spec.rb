@@ -60,10 +60,10 @@ RSpec.describe PagesController, :type => :controller do
     it "destroys a page" do
       sign_in_and_stub(@user)
       page = create(:page)
-      request.env["HTTP_REFERER"] = pages_url
 
       post :destroy, { id: page.id }
       expect(Page.count).to eq(0)
+      expect(response).to redirect_to pages_path
     end
   end
 end
