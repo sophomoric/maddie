@@ -1,15 +1,23 @@
 <%= form_for(page) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="container">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+  <div class="container">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
 
-  <%= f.label :order %>
-  <%= f.text_field :order %>
+  <div class="container">
+    <%= f.label :order %>
+    <%= f.text_field :order %>
+  </div>
 
-  <%= f.label :url_key %>
-  <%= f.text_field :url_key %>
+  <div class="container">
+    <%= f.label :url_key %>
+    <%= f.text_field :url_key %>
+  </div>
 
   <%= f.submit %>
 <% end %>

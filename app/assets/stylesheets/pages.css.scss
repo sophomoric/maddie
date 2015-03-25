@@ -1,17 +1,1 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-textarea {
-  width: 300px;
-  height: 200px;
-}
-
-.preview {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
+@import "shared/form"
