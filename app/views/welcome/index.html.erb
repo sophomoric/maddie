@@ -1,27 +1,10 @@
 <div class="container-fluid">
-	<div id="content">
-    <ul class="unstyled home-nav">
-      <% @pages.each do |page| %>
-        <li>
-          <%= link_to page.title, Router.new.page_url(page) %>
-        </li>
-      <% end %>
-    </ul>
-
-
-
-
-	</div>
+  <ul class="unstyled pages">
+    <% @pages.each do |page| %>
+      <li>
+        <%= link_to page.title, Router.new.page_url(page) %>
+      </li>
+    <% end %>
+    <br style="clear:both" />
+  </ul>
 </div>
-
-<script>
-  $(document).ready(function(){
-    window.globalHash = { "currentUser": <%= current_user ? current_user.to_json.html_safe : false %> }
-      // Maddie.initialize();
-  })
-
-
-</script>
-
-
-

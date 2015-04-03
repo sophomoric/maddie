@@ -1,3 +1,23 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$text-size: 50px;
+
+.container-fluid {
+  height: 600px;
+}
+
+.pages, .page-view {
+  font-size: $text-size;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+li, p, a, div {
+  min-height: $text-size;
+  line-height: $text-size;
+}
+
+li a {
+  display:block;
+  font-size: $text-size;
+}
