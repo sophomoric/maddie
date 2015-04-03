@@ -2,7 +2,7 @@
 
 <p><%= @project.description %></p>
 
-<img src="<%= DisplayPhoto.new(@project).url(params[:photo_id]) %>">
+<img src="<%= View::DisplayPhoto.new(@project).url(params[:photo_id]) %>">
 
 <ul class="project-photos">
   <% if @project.photos.any? %>
