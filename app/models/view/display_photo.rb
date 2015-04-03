@@ -1,4 +1,4 @@
-class DisplayPhoto
+class View::DisplayPhoto
   def initialize(project)
     @project = project
   end
