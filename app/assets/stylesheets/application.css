@@ -15,6 +15,10 @@
 
 /* --- CLEARFIX --- */
 
+.container-fluid {
+  height: 600px;
+}
+
 .group:after {
   content: "";
   clear: both;
