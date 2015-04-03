@@ -1,4 +1,4 @@
-<ul>
+<ul class="unstyled">
   <% @projects.each do |project| %>
     <li class="project">
       <a href="<%= project_url(project) %>">
@@ -9,3 +9,12 @@
     </li>
   <% end %>
 </ul>
+
+<table>
+  <% @projects.each do |project| %>
+    <tr><%= project.title %></tr>
+    <% project.photos.each do |photo| %>
+      <td><img src="<%= photo.avatar(:thumb) %>"></td>
+    <% end %>
+  <% end %>
+</table>
