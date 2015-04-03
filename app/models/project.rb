@@ -10,7 +10,9 @@ class Project < ActiveRecord::Base
 
   def self.build
     project = self.new
-    project.photos.new
+    10.times do
+      project.photos.new
+    end
     project
   end
 
