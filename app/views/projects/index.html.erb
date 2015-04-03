@@ -1,20 +1,8 @@
-<ul class="unstyled">
-  <% @projects.each do |project| %>
-    <li class="project">
-      <a href="<%= project_url(project) %>">
-        <p><%= project.title %></p>
-        <p><%= project.description %></p>
-        <%= image_tag(project.avatar.url(:medium)) %>
-      </a>
-    </li>
-  <% end %>
-</ul>
-
 <table>
   <% @projects.each do |project| %>
     <tr><%= project.title %></tr>
     <% project.photos.each do |photo| %>
-      <td><img src="<%= photo.avatar(:thumb) %>"></td>
+      <td><a href="<%= project_url(project) %>"><img src="<%= photo.avatar(:thumb) %>"></a></td>
     <% end %>
   <% end %>
 </table>
