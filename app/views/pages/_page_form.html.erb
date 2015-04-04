@@ -1,24 +1,8 @@
-<%= form_for(page) do |f| %>
-  <div class="container">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="container">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="container">
-    <%= f.label :order %>
-    <%= f.text_field :order %>
-  </div>
-
-  <div class="container">
-    <%= f.label :url_key %>
-    <%= f.text_field :url_key %>
-  </div>
-
+<%= simple_form_for(page) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body %>
+  <%= f.input :order %>
+  <%= f.input :url_key %>
   <%= f.submit %>
 <% end %>
 

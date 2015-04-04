@@ -42,6 +42,8 @@ gem "figaro"
 
 gem 'devise'
 
+gem "simple_form"
+
 group :development, :test do
   gem "pry-rails"
   gem 'rspec-rails', '~> 3.0'
