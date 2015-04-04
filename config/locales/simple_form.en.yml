@@ -1,0 +1,19 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: ""
+    error_notification:
+      default_message: "Please review the problems below:"
+    labels:
+      page:
+        title: "Page Title"
+        body: "Description: Markdown Text for Page"
+        url_key: "Url Key"
+        order: "Order on main menu page"
+    hints:
+    helpers:
+      submit:
+        page: "Submit"
