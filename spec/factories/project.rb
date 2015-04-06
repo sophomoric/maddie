@@ -8,7 +8,7 @@ FactoryGirl.define do
     price 100
 
     trait :avatar do
-      url "www.picture.com"
+      url "www.project-avatar.com"
     end
   end
 end

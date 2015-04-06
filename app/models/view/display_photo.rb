@@ -1,14 +1,26 @@
 class View::DisplayPhoto
-  def initialize(project)
+  include Rails.application.routes.url_helpers
+  def initialize(project, params)
     @project = project
+    @params = params
   end
 
-  def url(id=nil)
+  def main_photo
+    size = @params[:size] || :medium
+    id = @params[:photo_id]
     if id.present?
       photo = Photo.find(id)
-      photo.avatar.url(:medium)
+      photo.avatar(size)
     else
-      @project.avatar.url(:medium)
+      @project.avatar(size)
     end
+  end
+
+  def photos
+    @project.photos
+  end
+
+  def photo_url(photo)
+    "#{project_url(@project)}?photo_id=#{photo.id}"
   end
 end

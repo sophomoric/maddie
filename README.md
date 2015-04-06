@@ -44,3 +44,5 @@ Add tests?
 Move from AWS (free 12 month trial must end in May...)
 
 get rid of home screen view stuff next
+
+NOTE display_photo test only passess because it always looks at default photo url because when the project is created the avatar is missing._

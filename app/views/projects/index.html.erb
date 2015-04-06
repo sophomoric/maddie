@@ -2,7 +2,11 @@
   <% @projects.each do |project| %>
     <tr><%= project.title %></tr>
     <% project.photos.each do |photo| %>
-      <td><a href="<%= project_url(project) %>"><img src="<%= photo.avatar(:thumb) %>"></a></td>
+      <td>
+        <%= link_to project_url(project, photo_id: photo.id) do %>
+          <%= image_tag(photo.avatar(:thumb)) %>
+        <% end %>
+      </td>
     <% end %>
   <% end %>
 </table>

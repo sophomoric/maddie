@@ -66,6 +66,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   binding_of_caller
   bullet
   coffee-rails (~> 4.0.0)
+  database_cleaner
   devise
   ejs
   factory_girl_rails
