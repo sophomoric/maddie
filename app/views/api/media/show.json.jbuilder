@@ -1,1 +1,0 @@
-json.partial!("medium", :medium => @medium, :projects => @projects)
