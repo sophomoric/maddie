@@ -11,11 +11,9 @@ class PhotosController < ApplicationController
   end
 
   def create
-    project = Project.find(params[:project_id])
-    @photo = project.photos.new(photo_params)
+    @photo = Photo.new(photo_params)
     if @photo.save
-      flash[:messages] = ["You added a photo to " + project.title + ". Crop It!"]
-      render :crop
+      redirect_to :back
     else
       flash[:errors] = @photo.errors.full_messages
       redirect_to :back
@@ -39,10 +37,16 @@ class PhotosController < ApplicationController
     @photos = Photo.all
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to edit_project_url(@photo.project)
+  end
+
   private
 
   def photo_params
-    params.require(:photo).permit(:avatar)
+    params.require(:photo).permit(:avatar, :project_id)
   end
 
   def cropping_dimensions

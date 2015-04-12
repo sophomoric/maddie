@@ -8,8 +8,7 @@ Maddie::Application.routes.draw do
     resources :media_photos, only: [:new, :create]
   end
 
-  resources :photos, only: [:update] do
-  end
+  resources :photos, only: [:create, :update, :destroy]
 
   resources :projects
 

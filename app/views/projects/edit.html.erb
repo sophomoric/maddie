@@ -1,0 +1,23 @@
+<%= simple_form_for @project do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+
+  <%= image_tag(@project.avatar(:thumb)) %>
+  <%= f.input :avatar, label: "Swap Cover Photo" %>
+
+  <%= f.submit %>
+<% end %>
+
+<h2>Remove any photos?</h2>
+<% @project.photos.each do |photo| %>
+  <%= image_tag(photo.avatar(:thumb)) %>
+  <%= button_to "delete", photo_url(photo), method: :delete %>
+<% end %>
+
+<h2>Add a new photo</h2>
+<%= simple_form_for(@project.photos.new) do |f| %>
+  <%= f.input :avatar %>
+  <%= f.submit %>
+
+  <%= f.hidden_field :project_id, value: @project.id %>
+<% end %>

@@ -1,11 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PagesController, :type => :controller do
-  def sign_in_and_stub(user)
-    sign_in :user, user
-    allow(controller).to receive(:current_user) { user }
-  end
-
+describe PagesController do
   before do
     @user = create(:user)
   end
