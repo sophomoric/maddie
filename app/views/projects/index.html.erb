@@ -1,12 +1,16 @@
-<table>
+<div class="project-index">
   <% @projects.each do |project| %>
-    <tr><%= project.title %></tr>
-    <% project.photos.each do |photo| %>
-      <td>
-        <%= link_to project_url(project, photo_id: photo.id) do %>
-          <%= image_tag(photo.avatar(:thumb)) %>
-        <% end %>
-      </td>
-    <% end %>
+    <div class="project">
+      <div><%= project.title %></div>
+      <div><%= project.description %></div>
+      <% project.photos.each do |photo| %>
+        <div class="photo-thumb">
+          <%= link_to project_url(project, photo_id: photo.id) do %>
+           <%= image_tag(photo.avatar(:thumb)) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
   <% end %>
-</table>
+</div>
