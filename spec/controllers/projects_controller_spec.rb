@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ProjectsController do
+describe ProjectsController do
   def sign_in_bilbo
     user = User.create(email: "bilbo@baggins.com", password: "MyHobbitHole")
     sign_in :user, user
@@ -40,6 +40,19 @@ RSpec.describe ProjectsController do
     it "renders index" do
       get :index
       expect(response).to render_template(:index)
+    end
+  end
+
+  describe "POST #update" do
+    it "updates the project" do
+      sign_in_bilbo
+      project = create(:project, title: "Dog")
+      changes = { title: "Cat" }
+
+      post :update, project: changes, id: project.id
+
+      expect(project.reload.title).to eq("Cat")
+      expect(response).to redirect_to(edit_project_path(project))
     end
   end
 end
