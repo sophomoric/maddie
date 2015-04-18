@@ -40,7 +40,7 @@ describe View::DisplayPhoto do
       params = {}
 
       image_url = View::DisplayPhoto.new(project, params).photo_url(photo)
-      expect(image_url.include?("photo_id=#{photo.id}")).to eq(true)
+      expect(image_url.include?("photos/#{photo.id}")).to eq(true)
     end
   end
 end
