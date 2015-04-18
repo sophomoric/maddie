@@ -10,7 +10,9 @@ Maddie::Application.routes.draw do
 
   resources :photos, only: [:create, :update, :destroy]
 
-  resources :projects
+  resources :projects do
+    get "/photos/:photo_id" => "projects#show"
+  end
 
   resources :pages, only: [:index, :create, :update, :destroy]
 

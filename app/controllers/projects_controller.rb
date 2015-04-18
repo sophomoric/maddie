@@ -17,7 +17,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    project_id = (params[:project_id] || params[:id])
+    @project = Project.find(project_id)
   end
 
   def edit

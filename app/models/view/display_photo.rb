@@ -21,6 +21,6 @@ class View::DisplayPhoto
   end
 
   def photo_url(photo)
-    "#{project_url(@project)}?photo_id=#{photo.id}"
+    "#{project_url(@project)}/photos/#{photo.id}"
   end
 end
