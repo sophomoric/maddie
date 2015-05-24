@@ -1,16 +1,26 @@
 <div class="project-index">
-  <% @projects.each do |project| %>
-    <div class="project">
-      <div><%= project.title %></div>
-      <div><%= project.description %></div>
-      <% project.photos.each do |photo| %>
-        <div class="photo-thumb">
-          <%= link_to project_url(project, photo_id: photo.id) do %>
-           <%= image_tag(photo.avatar(:thumb)) %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="clearfix"></div>
-  <% end %>
+  <section class="project-thumbs">
+    <% @projects.each do |project| %>
+        <% project.photos.each do |photo| %>
+          <div class="photo-container">
+            <div class="photo-thumb">
+              <%= link_to project_url(project, photo_id: photo.id) do %>
+                <%= image_tag(photo.avatar(:thumb)) %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  </section>
+  <section>
+    <% @projects.each do |project| %>
+          <div class="medium-container">
+            <div class="photo-medium">
+              <%= link_to project_url(project) do %>
+                <%= image_tag(project.avatar(:medium)) %>
+              <% end %>
+            </div>
+          </div>
+    <% end %> 
+  </section>
 </div>

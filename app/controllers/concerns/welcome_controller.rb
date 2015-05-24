@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @pages = Page.ordered_pages
   end
 
   def show

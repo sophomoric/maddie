@@ -1,8 +1,10 @@
-<ul class="unstyled pages">
-  <% @pages.each do |page| %>
-    <li>
-      <%= link_to page.title, Router.new.page_url(page) %>
-    </li>
-  <% end %>
-  <br style="clear:both" />
-</ul>
+<div class="welcome container-fluid">
+  <ul class="unstyled pages">
+    <% @pages.each do |page| %>
+      <li>
+        <%= link_to page.title, Router.new.page_url(page) %>
+      </li>
+    <% end %>
+    <br style="clear:both" />
+  </ul>
+</div>
