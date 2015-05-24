@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= ENV["TITLE"] && ENV["TITLE"].split("_").join(" ") %></title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container-fluid">
-  	<% if current_user %>
-      <%= render partial: "layouts/user_menu" %>
-  	<% end %>
+  <head>
+    <title><%= ENV["TITLE"] && ENV["TITLE"].split("_").join(" ") %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="center container-fluid">
+        <% if current_user %>
+          <%= render partial: "layouts/user_menu" %>
+        <% end %>
 
-    <% if flash[:errors] %>
-    	<ul class="error-list">
-      <% flash[:errors].each do |error| %>
-        <li class="error"><%= error %></li>
-      <% end %>
-      	</ul>
-    <% end %>
+        <% if flash[:errors] %>
+          <ul class="error-list">
+            <% flash[:errors].each do |error| %>
+              <li class="error"><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
-    <% if flash[:messages] %>
-    	<ul class="message-list">
-      <% flash[:messages].each do |message| %>
-        <li class="message"><%= message %></li>
-      <% end %>
-      	</ul>
-    <% end %>
+        <% if flash[:messages] %>
+          <ul class="message-list">
+            <% flash[:messages].each do |message| %>
+              <li class="message"><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
-  	<% if notice %>
-  	  <p class="alert alert-success"><%= notice %></p>
-  	<% end %>
-  	<% if alert %>
-  	  <p class="alert alert-danger"><%= alert %></p>
-  	<% end %>
-    <%= yield %>
-  </div>
-</body>
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+
+        <% unless content_for :pages_menu %>
+          <%= render partial: "layouts/pages_menu", locals: { pages: @pages } %>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>

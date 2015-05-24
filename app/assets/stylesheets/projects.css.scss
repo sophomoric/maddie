@@ -32,11 +32,25 @@
 
 /*INDEX PAGE*/
 .project-index {
-  .project {
-    width: 700px;
+  section.project-thumbs {
+    width: 30%;
+    float: left;
+  }
+  
+  margin: auto;
+  .photo-container {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    height: 100px;
   }
 
   .photo-thumb {
-    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .photo-medium {
+    margin: auto;
   }
 }
