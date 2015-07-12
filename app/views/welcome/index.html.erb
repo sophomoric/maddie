@@ -2,7 +2,7 @@
   <ul class="unstyled pages">
     <% @pages.each do |page| %>
       <li>
-        <%= link_to page.title, Router.new.page_url(page) %>
+        <%= link_to page.title, page.url_key %>
       </li>
     <% end %>
     <br style="clear:both" />
