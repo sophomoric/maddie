@@ -1,10 +1,12 @@
+require "rails_helper"
+
 describe Router do
   describe ".page_url" do
     it "generates route based on url_key" do
       page = build(:page)
       page.url_key = "about-me"
 
-      expect(Router.new.page_url(page)).to match("pages/about-me")
+      expect(Router.new.page_url(page)).to match("about-me")
     end
 
     it "routes to the main page if no url_key" do

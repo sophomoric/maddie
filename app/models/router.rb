@@ -7,7 +7,7 @@ class Router
 
   def page_url(page)
     if page.url_key.present?
-      "#{pages_url}/#{(page.url_key)}"
+      page.url_key
     else
       root_url
     end
