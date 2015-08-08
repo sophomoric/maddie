@@ -1,4 +1,4 @@
-Maddie::Application.configure do
+Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -28,6 +28,8 @@ Maddie::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  config.assets.digest = true
+  config.assets.raise_runtime_errors = true
 
   config.after_initialize do
     Bullet.enable = true
