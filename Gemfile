@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.2'
 
-gem 'rails', '4.0.2'
+gem 'rails'
 gem 'pg'
 
 gem 'sass-rails', '~> 4.0.0'
@@ -36,8 +36,8 @@ gem 'rails_12factor', group: :production
 
 gem "backbone-on-rails"
 
-gem "paperclip", "~> 4.1"
-gem 'aws-sdk', '~> 1.5.7'
+gem "paperclip"
+gem 'aws-sdk'
 gem "figaro"
 
 gem 'devise'
