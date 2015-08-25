@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     if @project.save
       redirect_to @project
@@ -18,15 +18,15 @@ class ProjectsController < ApplicationController
 
   def show
     project_id = (params[:project_id] || params[:id])
-    @project = Project.find(project_id)
+    @project = current_user.projects.find(project_id)
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
 
     if @project.update(project_params)
       redirect_to edit_project_url(@project)
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all.includes(:photos)
+    @projects = user_by_domain.projects.includes(:photos)
   end
 
   private

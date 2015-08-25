@@ -1,16 +1,16 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
   def new
-    @page = Page.next_page
+    @page = PageOrderer.new(user_by_domain).next_page
   end
 
   def index
-    @page = Page.next_page
+    @page = PageOrderer.new(user_by_domain).next_page
     render_pages
   end
 
   def create
-    @page = Page.new(page_params)
+    @page = current_user.pages.new(page_params)
     if @page.save
       flash[:messages] = ["Page Saved"]
       redirect_to pages_url
@@ -21,11 +21,11 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @page = Page.find(params[:id])
+    @page = current_user.pages.find(params[:id])
   end
 
   def update
-    @page = Page.find(params[:id])
+    @page = current_user.pages.find(params[:id])
     if @page.update(page_params)
       flash[:messages] = ["Page Updated"]
       redirect_to pages_url
@@ -36,7 +36,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    page = Page.find(params[:id])
+    page = current_user.pages.find(params[:id])
     page.destroy
     redirect_to pages_url
   end
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
   private
 
   def render_pages
-    @pages = Page.ordered_pages
+    @pages = PageOrderer.new(user_by_domain).pages
     render "index"
   end
 

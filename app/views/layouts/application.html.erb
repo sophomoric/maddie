@@ -38,7 +38,7 @@
         <% end %>
 
         <% unless content_for :pages_menu %>
-          <%= render partial: "layouts/pages_menu", locals: { pages: @pages } %>
+          <%= render partial: "layouts/pages_menu", locals: { pages: user_by_domain.pages } %>
         <% end %>
         <%= yield %>
       </div>
