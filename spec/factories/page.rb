@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :page do
-    title "Tiffan"
     body "Blah Blah Blah"
-    order 0
-    url_key "tot"
+    sequence(:order){|n| n }
+    sequence(:title){|n| "title_#{n}" }
+    sequence(:url_key){|n| "url_key_#{n}" }
   end
 end

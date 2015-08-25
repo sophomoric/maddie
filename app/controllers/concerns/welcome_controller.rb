@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @pages = PageOrderer.new(user_by_domain).pages
   end
 
   def show

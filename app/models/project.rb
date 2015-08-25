@@ -1,7 +1,9 @@
 class Project < ActiveRecord::Base
   include AttachAvatar
   include Croppable
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: { scope: :user_id }
+
+  belongs_to :user
 
   has_and_belongs_to_many :media
 

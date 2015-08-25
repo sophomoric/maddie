@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320000409) do
+ActiveRecord::Schema.define(version: 20150911004827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "media", force: true do |t|
+  create_table "media", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
@@ -25,26 +25,29 @@ ActiveRecord::Schema.define(version: 20150320000409) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "user_id"
   end
 
-  create_table "media_projects", force: true do |t|
+  add_index "media", ["user_id"], name: "index_media_on_user_id", using: :btree
+
+  create_table "media_projects", force: :cascade do |t|
     t.integer "project_id"
     t.integer "medium_id"
   end
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title",      default: "", null: false
     t.text     "body",       default: "", null: false
     t.integer  "order",                   null: false
-    t.string   "route"
     t.string   "url_key"
+    t.integer  "user_id"
   end
 
-  add_index "pages", ["url_key"], name: "index_pages_on_url_key", unique: true, using: :btree
+  add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
-  create_table "photos", force: true do |t|
+  create_table "photos", force: :cascade do |t|
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150320000409) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "height"
@@ -68,11 +71,13 @@ ActiveRecord::Schema.define(version: 20150320000409) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "user_id"
   end
 
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
   add_index "projects", ["year"], name: "index_projects_on_year", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -85,6 +90,7 @@ ActiveRecord::Schema.define(version: 20150320000409) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "domain"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

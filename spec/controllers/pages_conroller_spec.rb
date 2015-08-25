@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe PagesController do
   before do
-    @user = create(:user)
+    @user = create(:user, domain: "test.host")
   end
 
   describe "GET index" do
@@ -34,7 +34,7 @@ describe PagesController do
   describe "Page Update" do
     it "updates a page" do
       sign_in_and_stub(@user)
-      page = create(:page)
+      page = create(:page, user: @user)
       attributes =  { title: "Beep", body: "Boop" }
 
       post :update, page: attributes, id: page.id
@@ -43,7 +43,7 @@ describe PagesController do
 
     it "renders edit template if errors are present" do
       sign_in_and_stub(@user)
-      page = create(:page)
+      page = create(:page, user: @user)
       attributes =  { url_key: nil }
 
       post :update, page: attributes, id: page.id
@@ -54,7 +54,7 @@ describe PagesController do
   describe "Page Destroy" do
     it "destroys a page" do
       sign_in_and_stub(@user)
-      page = create(:page)
+      page = create(:page, user: @user)
 
       post :destroy, { id: page.id }
       expect(Page.count).to eq(0)
