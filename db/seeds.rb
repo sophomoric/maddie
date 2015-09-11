@@ -1,3 +1,14 @@
-Page.create(title: "Work", body: "Projects", order: 1)
-Page.create(title: "About", body: "I GOT MY FINGERS AND TOES", order: 2)
-Page.create(title: "Inspiration", body: "My friends also make pretty stuff. Aren't we just pees in a pot", order: 3)
+user = User.create(email: "dev@dev.com", password: "12345678", domain: "localhost")
+
+titles = ["Work", "About", "Inspiration"]
+bodies = ["Never", "Five Fingers Five Toes Five Problems", "My Brother"]
+
+3.times do |o|
+  Page.create(
+    title: titles[o],
+    body: bodies[o],
+    order: (o + 1),
+    user_id: user.id,
+    url_key: titles[o]
+  )
+end
