@@ -38,7 +38,7 @@ gem "backbone-on-rails"
 
 gem "paperclip"
 gem 'aws-sdk'
-gem "figaro"
+gem "dotenv-rails"
 
 gem 'devise'
 
