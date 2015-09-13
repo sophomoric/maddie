@@ -18,7 +18,7 @@ describe PageOrderer do
   describe "#next_page" do
     context "first page a user creates" do
       it "returns a page with order set to 1" do
-        user = build(:user)
+        user = create(:user)
         page_orderer = PageOrderer.new(user)
 
         expect(page_orderer.next_page.order).to eq(1)
@@ -27,9 +27,10 @@ describe PageOrderer do
 
     context "user has 3 pages" do
       it "returns a page with the next number in sequence" do
-        user = build(:user)
-        page_orderer = PageOrderer.new(user)
+        user = create(:user)
+        user.pages = []
         3.times { create(:page, user: user) }
+        page_orderer = PageOrderer.new(user)
 
         expect(page_orderer.next_page.order).to eq(4)
       end

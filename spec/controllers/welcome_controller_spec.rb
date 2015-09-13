@@ -11,12 +11,14 @@ RSpec.describe WelcomeController do
 
   describe "GET show" do
     context "page name exists" do
-      it "renders the show page" do
-        page = create(:page, user: test_user)
+      it "assigns @page to the correct user" do
+        wrong_user = create(:user, domain: "other.domain")
+        create(:page, user: wrong_user, url_key: "2")
+        page = create(:page, user: test_user, url_key: "1")
 
         get :show, url_key: page.url_key
 
-        expect(response).to render_template(:show)
+        expect(assigns(:page)).to eq(page)
       end
     end
 
