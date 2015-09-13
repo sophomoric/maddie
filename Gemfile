@@ -32,8 +32,6 @@ group :development do
   gem "bullet"
 end
 
-gem 'rails_12factor', group: :production
-
 gem "backbone-on-rails"
 
 gem "paperclip"
