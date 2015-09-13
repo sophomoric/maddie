@@ -35,7 +35,7 @@ end
 gem "backbone-on-rails"
 
 gem "paperclip"
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem "dotenv-rails"
 
 gem 'devise'
