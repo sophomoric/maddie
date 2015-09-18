@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:create, :update, :destroy]
 
+  get "/projects/:url_key" => "projects#show"
   resources :projects do
     get "/photos/:photo_id" => "projects#show"
   end

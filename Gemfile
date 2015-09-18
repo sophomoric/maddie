@@ -50,6 +50,10 @@ group :development, :test do
   gem "database_cleaner"
 end
 
+group :test do
+  gem "capybara-webkit"
+end
+
 gem "redcarpet"
 
 gem 'capistrano', '~> 3.1.0'
