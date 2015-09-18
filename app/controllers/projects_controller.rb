@@ -17,8 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    project_id = (params[:project_id] || params[:id])
-    @project = current_user.projects.find(project_id)
+    @project = user_by_domain.projects.find_by_url_key(params[:url_key])
   end
 
   def edit

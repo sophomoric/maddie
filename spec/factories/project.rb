@@ -6,6 +6,7 @@ FactoryGirl.define do
     width 6
     year 1517
     price 100
+    sequence(:url_key){|n| "url_key_#{n}" }
 
     trait :avatar do
       url "www.project-avatar.com"
