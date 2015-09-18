@@ -35,9 +35,13 @@ describe ProjectsController do
         bilbo = create_bilbo
         sign_in(bilbo)
 
-        post :create, project: { title: "Tiffan", description: "Tot" }
+        post :create, project: {
+          title: "Tiffan",
+          description: "Tot",
+          url_key: "tot"
+        }
 
-        expect(response).to redirect_to "/projects/#{bilbo.projects.last.id}"
+        expect(response).to redirect_to "/projects/#{bilbo.projects.last.url_key}"
       end
     end
   end

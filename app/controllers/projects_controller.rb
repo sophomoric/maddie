@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!,
-      :only => [:destroy, :create, :update]
+  before_filter :authenticate_user!, except: [:show, :index]
 
   def new
     @project = Project.build
@@ -17,8 +16,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    project_id = (params[:project_id] || params[:id])
-    @project = current_user.projects.find(project_id)
+    @project = user_by_domain.projects.find_by_url_key(params[:url_key])
   end
 
   def edit
@@ -43,6 +41,12 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).
-     permit(:title, :description, :avatar, photos_attributes: [:avatar])
+     permit(
+       :title,
+       :description,
+       :avatar,
+       :url_key,
+       photos_attributes: [:avatar]
+    )
   end
 end
