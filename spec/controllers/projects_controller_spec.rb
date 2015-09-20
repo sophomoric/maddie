@@ -61,10 +61,10 @@ describe ProjectsController do
       project = create(:project, title: "Dog", user: bilbo)
       changes = { title: "Cat" }
 
-      post :update, project: changes, id: project.id
+      post :update, project: changes, id: project.url_key
 
       expect(project.reload.title).to eq("Cat")
-      expect(response).to redirect_to(edit_project_path(project))
+      expect(response).to redirect_to(project_path(project))
     end
   end
 end

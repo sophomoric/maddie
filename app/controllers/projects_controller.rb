@@ -16,18 +16,18 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = user_by_domain.projects.find_by_url_key(params[:url_key])
+    @project = user_by_domain.projects.find_by_url_key!(params[:url_key])
   end
 
   def edit
-    @project = current_user.projects.find(params[:id])
+    @project = current_user.projects.find_by_url_key!(params[:id])
   end
 
   def update
-    @project = current_user.projects.find(params[:id])
+    @project = current_user.projects.find_by_url_key(params[:id])
 
     if @project.update(project_params)
-      redirect_to edit_project_url(@project)
+      redirect_to project_url(@project)
     else
       render "edit"
     end

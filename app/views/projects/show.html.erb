@@ -1,5 +1,9 @@
 <% view_helper = View::DisplayPhoto.new(@project, params) %>
 
+<% if @project.user == current_user %>
+  <%= link_to("Edit This Project", edit_project_url(@project)) %>
+<% end %>
+
 <div class="project-show">
   <ul class="project-photos pull-left">
     <% @project.photos.each do |photo| %>
