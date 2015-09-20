@@ -27,10 +27,10 @@ describe PageOrderer do
 
     context "user has 3 pages" do
       it "returns a page with the next number in sequence" do
-        user = create(:user)
+        user = create(:user, domain: "test")
         user.pages = []
         3.times { create(:page, user: user) }
-        page_orderer = PageOrderer.new(user)
+        page_orderer = PageOrderer.new(user.reload)
 
         expect(page_orderer.next_page.order).to eq(4)
       end
