@@ -1,48 +1,31 @@
-* An Art Portfolio Application
+# Maddie
 
-* Ruby on Rails backend
-- JSON API uses jbuilder to format response
+A web app for uploading and displaying custom content.
 
-* Backbone.js front end
-- models Projects, nested photo collection, and media
+Models
 
-* Consider...
-- Set up a mailer and people can enter their email address
-- Make media pictures change by a timer.
-- Seed Media and standard tags
-- Ensure pictures of different sizes format the same (must be a gem to do this)
-- Duplicate for rebecca, but ensure code can be deployed to both places for updates
-- Needs Contact info page (maybe a form to email)
-- Links to purchase
+* Users
+   - Users have a host property (e.g. www.adriancann.com)
+   - This allows this app to sit on one machine but serve content specific to
+     a domain or subdomain
 
-- User should be able to add tags to projects (Dropdown list of tags to add.. or radio button)
-- elegent way to handle scrolling. load first pictures of a project (high def) in order going down.
+* Projects
+   - Projects allow photos to be uploaded. A project can have a description,
+     title, cover photo, and multiple other photos.
 
-- Hover over a medium. have medium appear as h1 tag on page
-
-- Rather than change picture sizes on index page (dont set img height, width) but have the css styling arrange to bufffer the space (ensure square).
-
-- Add cv section
-- (maybe add a thing to add sections)
-- make different section texts loadable..
-- each project photo has its own info page... (rebecca has many photos per project that are projects of their own)
-
--rebecca has most recent version of app... update at madelinecann.com
-
--cropping all versions of photo (maybe save different versions. but have one marked as cropped)
-
-Smarter organization... what controller should crop the main project photo? not the api::projects... cropping controller maybe? and there should be some cropping concerns...
-both photo avatar and project avatar should have the same cropping logic to keep things DRY...
-
-CroppingController
-
-model can be Project or Photo or User (later)
+* Pages
+   - The root url shows all pages tied to a user (associated with the visited
+     domain)
+   - A user can edit the page content. Markdown allows pictures to be inserted
+     into the body of the page.
 
 
-Add tests?
+Deployment
 
-Move from AWS (free 12 month trial must end in May...)
+* This project is deployed to a digital ocean droplet running Ubuntu. Passenger
+  and NGINX.
+* For details about the woes of setup and deployment: visit <a
+  href="http://www.adriancann.com">adriancann.com</a> and hope I have posted
+  some content.
 
-get rid of home screen view stuff next
 
-NOTE display_photo test only passess because it always looks at default photo url because when the project is created the avatar is missing._
