@@ -11,29 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915015913) do
+ActiveRecord::Schema.define(version: 20150926134503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "media", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "media", ["user_id"], name: "index_media_on_user_id", using: :btree
-
-  create_table "media_projects", force: :cascade do |t|
-    t.integer "project_id"
-    t.integer "medium_id"
-  end
 
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at"

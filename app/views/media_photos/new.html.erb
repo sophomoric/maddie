@@ -1,9 +1,0 @@
-<form action="<%= medium_media_photos_url(params[:medium_id]) %>" method="post" enctype="multipart/form-data">
-	<%= auth_token %>
-	
-	<label for="avatar">Picture</label>
-	<input id="avatar" name="photo[avatar]" type="file">
-	<button>Create Photo</button>
-</form>
-
-<a href="/#/media/<%= params[:medium_id] %>">Show Medium</a>

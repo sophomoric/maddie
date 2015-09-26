@@ -4,10 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  resources :media, only: [] do
-    resources :media_photos, only: [:new, :create]
-  end
-
   resources :photos, only: [:create, :update, :destroy]
 
   resources :projects, except: [:show]
