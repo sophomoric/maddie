@@ -6,8 +6,6 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
 
-  has_and_belongs_to_many :media
-
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos
 
