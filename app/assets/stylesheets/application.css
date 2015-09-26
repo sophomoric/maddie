@@ -11,7 +11,6 @@
  *= require_self
  *= require bootstrap.min
  *=// require jquery.Jcrop.min
- *= require pages_menu
  *= require welcome
  *= require pages
  */
