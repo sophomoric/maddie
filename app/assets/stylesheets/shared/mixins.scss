@@ -1,0 +1,7 @@
+@mixin text-sizing($text-size) {
+  font-size: ($text-size);
+  li, p, a, div {
+    min-height: (1.5 * $text-size);
+    line-height: (1.5 * $text-size);
+  }
+}

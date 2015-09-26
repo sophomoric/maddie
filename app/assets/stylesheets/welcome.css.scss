@@ -1,21 +1,21 @@
+@import "shared/mixins";
+
 .welcome {
   $text-size: 50px;
+  margin-top: $text-size;
+  text-align: center;
 
-  .pages, .page-view {
-    font-size: $text-size;
-    text-align: center;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  li, p, a, div {
-    min-height: $text-size;
-    line-height: $text-size;
-  }
+  @include text-sizing($text-size);
 
   li a {
     display:block;
-    font-size: $text-size;
+  }
+
+  .page-title {
+    font-weight: bold;
+  }
+
+  .page-body {
+    @include text-sizing(0.5 * $text-size);
   }
 }

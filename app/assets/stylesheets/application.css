@@ -12,25 +12,6 @@
  *= require bootstrap.min
  *=// require jquery.Jcrop.min
  *= require pages_menu
+ *= require welcome
+ *= require pages
  */
-
-/* --- CLEARFIX --- */
-
-.container-fluid {
-  height: 600px;
-}
-
-.center {
-  margin: auto;
-  width: 700px;
-}
-
-.group:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-li {
-  list-style-type: none;
-}
