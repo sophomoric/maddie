@@ -12,7 +12,7 @@ feature "Creates a Page" do
     fill_in "Description", with: "I am a philosiphizer"
     click_button "Create Page"
 
-    expect(page).to have_text("About Me")
+    expect(page).to have_text("Page Saved")
     expect(Page.last.title).to eq("About Me")
   end
 
