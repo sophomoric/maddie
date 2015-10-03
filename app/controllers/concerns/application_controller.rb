@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def page_title
-    user_by_domain.domain.try(:split, ".").try(:[], 1) || "Adrian Rules"
+    user_by_domain.page_title || "Adrian Rules"
   end
 
   helper_method :user_by_domain, :page_title

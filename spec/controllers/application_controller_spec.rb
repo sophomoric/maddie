@@ -14,11 +14,11 @@ describe ApplicationController do
       expect(response.body).to eq("Adrian Rules")
     end
 
-    it "returns the second part of the host" do
-      create(:user, domain: "test.host")
+    it "returns the users title" do
+      create(:user, domain: "test.host", page_title: "My Title")
       get :index
 
-      expect(response.body).to eq("host")
+      expect(response.body).to eq("My Title")
     end
   end
 end

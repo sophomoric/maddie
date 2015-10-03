@@ -1,4 +1,9 @@
-user = User.create(email: "dev@dev.com", password: "12345678", domain: "localhost")
+user = User.create(
+  email: "dev@dev.com",
+  password: "12345678",
+  domain: "localhost",
+  title: "Development"
+)
 
 titles = ["Work", "About", "Inspiration"]
 bodies = ["Never", "Five Fingers Five Toes Five Problems", "My Brother"]
