@@ -43,6 +43,14 @@ class PagesController < ApplicationController
 
   private
 
+  def authenticate_user!
+    if user_signed_in? && current_user != user_by_domain
+      redirect_to :root, notice: "You do not have permission to edit that!"
+    else
+      super
+    end
+  end
+
   def render_pages
     @pages = PageOrderer.new(user_by_domain).pages
     render "index"

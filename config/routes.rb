@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "pages/index"
-  devise_for :users, :skip => [:registrations, :passwords]
+  devise_for :users, module: "users", :skip => [:registrations, :passwords]
 
   root to: 'welcome#index'
 
