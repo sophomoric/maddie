@@ -8,12 +8,12 @@ feature "Edits a Page" do
   end
 
   scenario "authenticated as a user under different domain" do
-    page_owner = create(:user, domain: "test.host")
+    page_owner = create(:user)
     create(:page, user: page_owner)
-    signed_in_user = create(:user, domain: "other_domain")
-    sign_in(signed_in_user)
+    sign_in(page_owner)
+    page_owner.update_attribute(:domain, "wrong_domain_for_test")
 
-    visit pages_path(as: signed_in_user)
+    visit pages_path(as: page_owner)
 
     expect(page).to have_text("You do not have permission to edit that!")
   end
