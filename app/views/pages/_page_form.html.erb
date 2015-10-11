@@ -3,9 +3,5 @@
   <%= f.input :body %>
   <%= f.input :order %>
   <%= f.input :url_key %>
-  <%= f.submit %>
+  <%= f.submit class: "pull-left" %>
 <% end %>
-
-<div class="preview">
-  <%= MarkdownHelper.new(page.body).render %>
-</div>

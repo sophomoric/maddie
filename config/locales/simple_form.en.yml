@@ -10,7 +10,7 @@ en:
     labels:
       page:
         title: "Page Title"
-        body: "Description: Markdown Text for Page"
+        body: "Body"
         url_key: "Url Key"
         order: "Order on main menu page"
     hints:

@@ -1,7 +1,14 @@
-<h1>Pages</h1>
 <% @pages.each do |page| %>
   <%= render partial: "page_form", locals: { page: page } %>
-  <%= button_to "delete", page_url(page), method: :delete %>
+  <%= button_to(
+    "Delete Page",
+    page_url(page),
+    method: :delete,
+    class: "pull-right"
+  ) %>
+  <div class="welcome">
+      <%= MarkdownHelper.new(page.body).render %>
+  </div>
 <% end %>
 
 <h2>New Page</h2>

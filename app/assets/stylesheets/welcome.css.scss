@@ -22,7 +22,7 @@
   }
 
   .page-body {
-    p { @include text-sizing(30px, 1.3); }
+    div, li, ul, a, p { @include text-sizing(30px, 1.3); }
   }
 
   @media #{$desktop-screen} {

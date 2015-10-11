@@ -1,0 +1,14 @@
+@import "shared/mixins";
+$font-size: 30px;
+
+div,
+p,
+h1,
+input,
+.form-control {
+  font-size: $font-size;
+}
+
+.form-control {
+  height: 2 * $font-size;
+}
