@@ -48,7 +48,8 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit"
+  gem "capybara-webkit", ">= 1.2.0"
+  gem "launchy"
 end
 
 gem "redcarpet"

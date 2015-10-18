@@ -1,15 +1,12 @@
+<h1>Click to Edit</h1>
+
 <% @pages.each do |page| %>
-  <%= render partial: "page_form", locals: { page: page } %>
-  <%= button_to(
-    "Delete Page",
-    page_url(page),
-    method: :delete,
-    class: "pull-right"
-  ) %>
-  <div class="welcome">
-      <%= MarkdownHelper.new(page.body).render %>
+  <div>
+    <%= link_to(
+      page.title,
+      edit_page_url(page),
+    ) %>
   </div>
 <% end %>
 
-<h2>New Page</h2>
-<%= render partial: "page_form", locals: { page: @page } %>
+<%= link_to "New Page", new_page_path %>

@@ -1,3 +1,7 @@
 <h1>Edit <%= @page.title %></h1>
 <%= render partial: "page_form", locals: { page: @page } %>
-<%= button_to "delete", page_url(@page), method: :delete %>
+<%= button_to "delete", page_url(@page), method: :delete, class: "pull-right" %>
+<div class="welcome">
+  <%= MarkdownHelper.new(@page.body).render %>
+</div>
+

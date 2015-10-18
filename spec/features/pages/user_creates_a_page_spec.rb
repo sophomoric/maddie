@@ -3,8 +3,10 @@ require "rails_helper"
 feature "Creates a Page" do
   scenario "authenticated" do
     user = create(:user)
+    visit root_url(as: user)
 
-    visit pages_path(as: user)
+    click_link "Edit Menu"
+    click_link "New Page"
 
     fill_in "Title", with: "About Me"
     fill_in "Url Key", with: "about-me"

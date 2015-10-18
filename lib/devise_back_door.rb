@@ -6,7 +6,7 @@ class DeviseBackDoor
   def call(env)
     @env = env
     sign_in_through_the_back_door
-    @app.call(env)
+    @app.call(@env)
   end
 
   private

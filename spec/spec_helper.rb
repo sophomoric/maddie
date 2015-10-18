@@ -24,9 +24,4 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-    DatabaseCleaner.strategy = :truncation
-  end
 end
