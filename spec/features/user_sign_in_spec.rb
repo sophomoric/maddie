@@ -10,6 +10,7 @@ feature "Sign in" do
 
   scenario "User at correct domain" do
     user = create(:user)
+    set_host(user.domain)
     sign_in(user)
 
     expect(page).to have_text("Signed in successfully")

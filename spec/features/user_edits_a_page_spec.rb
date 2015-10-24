@@ -20,6 +20,7 @@ feature "Edits a Page" do
 
   scenario "authenticated user at correct domain" do
     user = create(:user)
+    set_host(user.domain)
     nice_page = create(:page, user: user)
 
     visit edit_page_path(nice_page, as: user)

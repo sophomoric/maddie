@@ -3,6 +3,7 @@ require "rails_helper"
 feature "Creates a Page" do
   scenario "authenticated" do
     user = create(:user)
+    set_host(user.domain)
     visit root_url(as: user)
 
     click_link "Edit Menu"

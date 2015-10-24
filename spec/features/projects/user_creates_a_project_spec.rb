@@ -3,6 +3,7 @@ require "rails_helper"
 feature "Creates a Project" do
   scenario "authenticated" do
     user = create(:user)
+    set_host(user.domain)
 
     project = build(:project)
     visit new_project_path(as: user)

@@ -24,4 +24,9 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  def set_host(host)
+    default_url_options[:host] = host
+    Capybara.app_host = "http://" + host
+  end
 end
