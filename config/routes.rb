@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :previews, only: [:create]
 
+  resources :users, only: [:edit, :update]
+
   get "/:url_key" => "welcome#show"
 
   get "projects/crop/:id" => 'projects#crop'
