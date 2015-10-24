@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
   has_many :pages
   has_many :photos, through: :projects
 
-  validates :domain, uniqueness: true
+  validates :domain, uniqueness: true, allow_blank: true
 end
