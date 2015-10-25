@@ -34,5 +34,12 @@ describe Page do
       page.user = user_2
       expect(page).to be_valid
     end
+
+    it "prevents reserved words" do
+      reserved_word = Page::RESERVED_WORDS.first
+      page = build(:page, url_key: reserved_word)
+
+      expect(page).not_to be_valid
+    end
   end
 end
