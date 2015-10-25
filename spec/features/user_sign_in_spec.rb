@@ -23,6 +23,13 @@ feature "Sign in" do
     expect(page).to have_text("Signed in successfully")
   end
 
+  scenario "Email not registered" do
+    user = build(:user)
+    sign_in(user)
+
+    expect(page).to have_text("Invalid email")
+  end
+
   def sign_in(user)
     visit new_user_session_path
     fill_in "Email", with: user.email

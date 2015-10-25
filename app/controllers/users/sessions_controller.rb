@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def user_has_domain?
-    User.find_by_email(email).domain.present?
+    User.find_by_email(email).try(:domain).present?
   end
 
   def correct_domain?
