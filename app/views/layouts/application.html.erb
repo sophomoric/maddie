@@ -11,9 +11,12 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="center container-fluid">
+      <div class="col-lg-10 col-lg-offset-1">
         <% if current_user %>
           <%= render partial: "layouts/user_menu" %>
+          <div class="dialogue container-fluid">
+            <%= yield :dialogue %>
+          </div>
         <% end %>
 
         <% if flash[:errors] %>

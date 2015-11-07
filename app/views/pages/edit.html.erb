@@ -1,7 +1,9 @@
-<h1>Edit <%= @page.title %></h1>
+<% content_for :dialogue do %>
+  <h1>Edit <%= @page.title %></h1>
+<% end %>
 <%= render partial: "page_form", locals: { page: @page } %>
 <%= button_to "delete", page_url(@page), method: :delete, class: "pull-right" %>
 <div class="welcome">
-  <%= MarkdownHelper.new(@page.body).render %>
+  <%= render partial: "shared/page_content", locals: { page: @page } %>
 </div>
 

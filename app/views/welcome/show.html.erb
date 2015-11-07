@@ -2,10 +2,6 @@
   <ul class="page-view nav nav-stacked">
     <li><%= link_to "Menu", root_url %></li>
   </ul>
-  <div class="page-content">
-    <div class="page-title text-left"><%= @page.title %></div>
-    <div class="page-body text-left">
-      <%= MarkdownHelper.new(@page.body).render %>
-    </div>
-  </div>
+
+  <%= render partial: "shared/page_content", locals: { page: @page } %>
 </div>

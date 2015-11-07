@@ -1,12 +1,22 @@
-<h1>Click to Edit</h1>
+<div class="edit-index">
+  <%= content_for :dialogue do %>
+    <h1>Click to Edit</h1>
+  <% end %>
 
-<% @pages.each do |page| %>
-  <div>
-    <%= link_to(
-      page.title,
-      edit_page_url(page),
-    ) %>
+  <div class="welcome container-fluid">
+    <ul class="pages nav nav-stacked">
+      <% @pages.each do |page| %>
+        <li>
+          <%= link_to(
+            page.title,
+            edit_page_url(page)
+          ) %>
+        </li>
+      <% end %>
+
+      <li>
+        <%= link_to "New Page", new_page_path  %>
+      </li>
+    </ul>
   </div>
-<% end %>
-
-<%= link_to "New Page", new_page_path %>
+</div>
