@@ -2,7 +2,7 @@ user = User.create(
   email: "dev@dev.com",
   password: "12345678",
   domain: "localhost",
-  title: "Development"
+  page_title: "Development"
 )
 
 titles = ["Work", "About", "Inspiration"]
