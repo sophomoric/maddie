@@ -12,7 +12,8 @@ RSpec.describe WelcomeController do
   describe "GET show" do
     context "page name exists" do
       it "assigns @page to the correct user" do
-        wrong_user = create(:user, domain: "other.domain")
+        wrong_user = create(:user)
+        create(:domain, host: "other.domain", user: wrong_user)
         create(:page, user: wrong_user, url_key: "2")
         page = create(:page, user: test_user, url_key: "1")
 
@@ -33,6 +34,7 @@ RSpec.describe WelcomeController do
   end
 
   def test_user
-    create(:user, domain: "test.host")
+    domain = create(:domain, host: "test.host")
+    create(:user, domains: [domain])
   end
 end

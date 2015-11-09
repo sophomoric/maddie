@@ -9,9 +9,10 @@ feature "Edits a Page" do
 
   scenario "authenticated as a user under different domain" do
     page_owner = create(:user)
+    create(:domain, user: page_owner, host: "wrong_domain_for_test")
+    set_host("different")
     create(:page, user: page_owner)
     my_page = create(:page, user: page_owner)
-    page_owner.update_attribute(:domain, "wrong_domain_for_test")
 
     visit edit_page_path(my_page, as: page_owner)
 
@@ -20,7 +21,8 @@ feature "Edits a Page" do
 
   scenario "authenticated user at correct domain" do
     user = create(:user)
-    set_host(user.domain)
+    domain = create(:domain, user: user)
+    set_host(domain.host)
     nice_page = create(:page, user: user)
 
     visit edit_page_path(nice_page, as: user)

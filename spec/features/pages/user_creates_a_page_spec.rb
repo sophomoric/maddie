@@ -3,7 +3,8 @@ require "rails_helper"
 feature "Creates a Page" do
   scenario "authenticated" do
     user = create(:user)
-    set_host(user.domain)
+    domain = create(:domain, user: user)
+    set_host(domain.host)
     visit root_url(as: user)
 
     click_link "Edit Menu"
@@ -18,7 +19,8 @@ feature "Creates a Page" do
 
   scenario "reserved url key" do
     user = create(:user)
-    set_host(user.domain)
+    domain = create(:domain, user: user)
+    set_host(domain.host)
 
     visit new_page_url(as: user)
     unsaved_page = build(:page, url_key: Page::RESERVED_WORDS.first)

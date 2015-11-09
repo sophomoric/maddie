@@ -3,7 +3,10 @@
 <% end %>
 
 <%= simple_form_for @user do |f| %>
-  <%= f.input :domain %>
-  <%= f.input :page_title %>
+  <%= f.fields_for :domains do |ff| %>
+    <%= ff.input :host %>
+    <%= ff.input :page_title %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>

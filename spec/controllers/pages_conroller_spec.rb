@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe PagesController do
   before do
-    @user = create(:user, domain: "test.host")
+    @user = create(:user)
+    create(:domain, host: "test.host")
   end
 
   describe "GET index" do
@@ -10,6 +11,7 @@ describe PagesController do
       sign_in_and_stub(@user)
 
       get :index
+
       expect(response).to render_template(:index)
     end
   end
@@ -18,6 +20,7 @@ describe PagesController do
     it "creates a page" do
       sign_in_and_stub(@user)
       post :create, page: build(:page).attributes
+
       expect(Page.count).to eq(1)
     end
 
@@ -25,6 +28,7 @@ describe PagesController do
       sign_in_and_stub(@user)
       page = build(:page)
       page.url_key = nil
+
       post :create, page: page.attributes
 
       expect(Page.count).to eq(0)
@@ -38,6 +42,7 @@ describe PagesController do
       attributes =  { title: "Beep", body: "Boop" }
 
       post :update, page: attributes, id: page.id
+
       expect(Page.first.title).to eq("Beep")
     end
 
@@ -47,6 +52,7 @@ describe PagesController do
       attributes =  { url_key: nil }
 
       post :update, page: attributes, id: page.id
+
       expect(response).to render_template(:edit)
     end
   end
@@ -57,6 +63,7 @@ describe PagesController do
       page = create(:page, user: @user)
 
       post :destroy, { id: page.id }
+
       expect(Page.count).to eq(0)
       expect(response).to redirect_to pages_path
     end

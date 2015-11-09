@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
+  before_filter :ensure_domain_has_user!
 
   def new
     @project = Project.build

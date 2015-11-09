@@ -2,23 +2,28 @@ require "rails_helper"
 
 feature "User sets domain spec" do
   scenario "authenticated, unused domain" do
-    user = create(:user, domain: "www.test.com")
+    user = create(:user)
+    domain = create(:domain, user: user, host: "www.test.com")
     visit edit_user_path(user, as: user)
 
-    fill_in "Domain", with: "www.new_domain.com"
+    set_field("user_domains_attributes_0_host", "www.new_domain.com")
     click_button "Update User"
 
-    expect(user.reload.domain).to eq("www.new_domain.com")
+    expect(domain.reload.host).to eq("www.new_domain.com")
   end
 
   scenario "Domain Already in Use" do
     user = create(:user)
-    create(:user, domain: "www.squat.com")
+    create(:domain, host: "www.squat.com")
     visit edit_user_path(user, as: user)
 
-    fill_in "Domain", with: "www.squat.com"
+    set_field("user_domains_attributes_0_host", "www.squat.com")
     click_button "Update User"
 
-    expect(user.reload.domain).to_not eq("www.squat.com")
+    expect(user.domains.pluck(:host)).to_not include("www.squat.com")
+  end
+
+  def set_field(id, value)
+    find_by_id(id).set(value)
   end
 end

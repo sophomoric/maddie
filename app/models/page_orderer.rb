@@ -4,7 +4,11 @@ class PageOrderer
   end
 
   def pages
-    user.pages.order(:order)
+    if user
+      user.pages.order(:order)
+    else
+      []
+    end
   end
 
   def next_page

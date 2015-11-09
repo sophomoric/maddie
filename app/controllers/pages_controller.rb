@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
+
   def new
     @page = PageOrderer.new(user_by_domain).next_page
   end

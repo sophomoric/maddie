@@ -13,6 +13,12 @@ describe PageOrderer do
 
       expect(page_titles).to eq(["page 1", "page 2", "page 3"])
     end
+
+    it "returns an empty array if no user is present" do
+      page_orderer = PageOrderer.new(nil)
+
+      expect(page_orderer.pages).to eq([])
+    end
   end
 
   describe "#next_page" do
@@ -27,7 +33,8 @@ describe PageOrderer do
 
     context "user has 3 pages" do
       it "returns a page with the next number in sequence" do
-        user = create(:user, domain: "test")
+        user = create(:user)
+        create(:domain, user: user, host: "test")
         user.pages = []
         2.times { create(:page, user: user) }
         last_page = create(:page, user: user)
