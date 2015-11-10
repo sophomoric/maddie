@@ -10,8 +10,10 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
 
     if @project.save
+      flash[:messages] = ["Project Saved"]
       redirect_to @project
     else
+      flash[:errors] = @project.errors.full_messages
       render "new"
     end
   end
@@ -28,8 +30,10 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find_by_url_key(params[:id])
 
     if @project.update(project_params)
+      flash[:messages] = ["Project Updated"]
       redirect_to project_url(@project)
     else
+      flash[:errors] = @project.errors.full_messages
       render "edit"
     end
   end

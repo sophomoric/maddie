@@ -1,0 +1,13 @@
+@import "shared/mixins";
+
+.flash-messages {
+  background: $devise-pink;
+
+  ul {
+    border-radius: 10px;
+  }
+
+  .messages {
+    background: green;
+  }
+}

@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       flash[:messages] = ["Page Saved"]
       redirect_to pages_url
     else
-      flash[:messages] = @page.errors.full_messages
+      flash[:errors] = @page.errors.full_messages
       render :new
     end
   end
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
       flash[:messages] = ["Page Updated"]
       redirect_to pages_url
     else
-      flash[:messages] = @page.errors.full_messages
+      flash[:errors] = @page.errors.full_messages
       render :edit
     end
   end
@@ -46,7 +46,7 @@ class PagesController < ApplicationController
 
   def authenticate_user!
     if user_signed_in? && current_user != user_by_domain
-      redirect_to :root, alert: "You do not have permission to edit that!"
+      redirect_to :root, alert: ["You do not have permission to edit that!"]
     else
       super
     end

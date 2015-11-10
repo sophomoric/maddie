@@ -15,24 +15,9 @@
         <% if current_user %>
           <%= render partial: "layouts/user_menu" %>
           <div class="dialogue container-fluid">
+            <%= render partial: "shared/flash_messages" %>
             <%= yield :dialogue %>
           </div>
-        <% end %>
-
-        <% if flash[:errors] %>
-          <ul class="error-list">
-            <% flash[:errors].each do |error| %>
-              <li class="error"><%= error %></li>
-            <% end %>
-          </ul>
-        <% end %>
-
-        <% if flash[:messages] %>
-          <ul class="message-list">
-            <% flash[:messages].each do |message| %>
-              <li class="message"><%= message %></li>
-            <% end %>
-          </ul>
         <% end %>
 
         <% if notice %>
