@@ -6,7 +6,7 @@ feature "Creates a Page" do
     visit root_url(as: user)
 
     click_link "Edit Menu"
-    click_link "New Page"
+    click_link "Add a new page"
 
     unsaved_page = build(:page)
     fill_in_fields(unsaved_page)

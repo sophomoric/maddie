@@ -1,5 +1,5 @@
 @import "shared/mixins";
-$font-size: 30px;
+@import "shared/variables";
 
 div,
 p,
@@ -15,4 +15,11 @@ input,
 
 h1 {
   text-align: center;
+}
+
+.new-action {
+  color: $new-green;
+  &:hover {
+    color: $new-green-darker;
+  }
 }

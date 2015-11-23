@@ -1,6 +1,6 @@
 <div class="edit-index">
   <%= content_for :dialogue do %>
-    <h1>Click to Edit</h1>
+    <h1>Click a page to edit</h1>
   <% end %>
 
   <div class="welcome container-fluid">
@@ -14,12 +14,18 @@
         </li>
       <% end %>
 
+      <h1>Other options</h1>
+
       <li>
-        <%= link_to "New Page", new_page_path  %>
+        <%= link_to "Add a new page", new_page_path, class: "new-action" %>
       </li>
 
       <li>
-        <%= link_to "Swap Order", new_order_swap_path  %>
+        <%= link_to(
+          "Swap order",
+          new_order_swap_path,
+          class: "new-action"  
+        ) %>
       </li>
     </ul>
   </div>

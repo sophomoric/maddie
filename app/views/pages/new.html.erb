@@ -1,5 +1,9 @@
-<h1>New Page: <%= @page.title %></h1>
+<%= content_for :dialogue do %>
+  <h1>New Page: <%= @page.title %></h1>
+<% end %>
+
 <%= render partial: "page_form", locals: { page: @page } %>
+
 <div class="welcome">
   <%= render partial: "shared/page_content", locals: { page: @page } %>
 </div>
