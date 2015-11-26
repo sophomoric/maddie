@@ -5,3 +5,13 @@
   <%= f.input :url_key %>
   <%= f.submit class: "pull-left" %>
 <% end %>
+
+<div class="clearfix"></div>
+
+<div class="user-photos clearfix">
+  <% current_user.photos.each do |photo| %>
+    <div class="photo-thumb">
+      <%= image_tag(photo.avatar.url(:thumb)) %>
+    </div>
+  <% end %>
+</div>

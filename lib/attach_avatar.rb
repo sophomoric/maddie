@@ -1,13 +1,16 @@
 module AttachAvatar
   FILE_FORMATS = [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
+  THUMB = 100
+  MEDIUM = 300
+
   def self.included(base)
     base.before_validation :make_url_image
     base.has_attached_file :avatar,
       processors: [:cropper],
       default_url: "http://s3.amazonaws.com/maddie_dev/photos/avatars/000/000/019/:style/search.jpg?1428163348",
       styles: {
-        medium: "300x300>",
-        thumb: "100x100>",
+        medium: "#{MEDIUM}x#{MEDIUM}>",
+        thumb: "#{THUMB}x#{THUMB}>",
         auto_bg: "auto_bg"
       }
     base.validates_attachment_content_type :avatar,
