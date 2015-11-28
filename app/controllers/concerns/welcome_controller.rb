@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   before_filter :ensure_domain_has_user!, only: [:show]
 
   def index
-    @pages = PageOrderer.new(user_by_domain).pages
+    @pages = PageOrderer.new(user_by_domain).visible_pages
   end
 
   def show

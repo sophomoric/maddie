@@ -30,10 +30,29 @@ feature "Creates a Page" do
     expect(page).to have_text("reserved")
   end
 
+  scenario "hidden page" do
+    user = create(:user)
+    domain = create(:domain, user: user)
+    set_host(domain.host)
+
+    visit new_page_url(as: user)
+    hidden_page = build(:page, hidden: true)
+    fill_in_fields(hidden_page)
+
+    expect(Page.last.title).to eq(hidden_page.title)
+
+    visit root_url
+    expect(page).not_to have_text(hidden_page.title)
+  end
+
   def fill_in_fields(page)
     fill_in "Title", with: page.title
     fill_in "Url Key", with: page.url_key
     fill_in "Body", with: page.body
+
+    option = page.hidden ? "Yes" : "No"
+    select option, from: "page_hidden"
+
     click_button "Create Page"
   end
 end

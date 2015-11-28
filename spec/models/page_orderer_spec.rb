@@ -44,4 +44,19 @@ describe PageOrderer do
       end
     end
   end
+
+  describe "page_after" do
+    it "returns the next page in order sequence or loops to beginning" do
+      user = create(:user)
+      create(:domain, user: user, host: "test")
+      first_page = create(:page, user: user)
+      second_page = create(:page, user: user)
+      third_page = create(:page, user: user)
+
+      page_orderer = PageOrderer.new(user.reload)
+
+      expect(page_orderer.page_after(second_page)).to eq(third_page)
+      expect(page_orderer.page_after(third_page)).to eq(first_page)
+    end
+  end
 end
