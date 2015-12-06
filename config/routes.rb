@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
 
+  resources :order_swaps, only: [:new, :create]
+
   get "/:url_key" => "welcome#show"
 
   get "projects/crop/:id" => 'projects#crop'

@@ -1,0 +1,12 @@
+<%= simple_form_for :order_swap, url: order_swaps_url do |f| %>
+  <% @pages.each do |page| %>
+    <%= f.input(
+      page.id,
+      label: page.title,
+      as: :select,
+      collection: @pages.pluck(:order),
+      selected: page.order
+    ) %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
