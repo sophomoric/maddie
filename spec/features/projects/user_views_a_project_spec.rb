@@ -2,9 +2,7 @@ require "rails_helper"
 
 feature "User views a Project" do
   scenario "project lives at specified url" do
-    user = create(:user)
-    domain = create(:domain, user: user)
-    set_host(domain.host)
+    user = user_at_test_domain
     project = create(:project, url_key: "poo-art", user: user)
     visit "/projects/poo-art"
 
@@ -12,9 +10,7 @@ feature "User views a Project" do
   end
 
   scenario "user creates project" do
-    user = create(:user)
-    domain = create(:domain, user: user)
-    set_host(domain.host)
+    user = user_at_test_domain
 
     project = build(:project)
     visit new_project_path(as: user)

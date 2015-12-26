@@ -2,9 +2,7 @@ require "rails_helper"
 
 feature "User swaps page order" do
   scenario "User correctly swaps order" do
-    user = create(:user)
-    domain = create(:domain, user: user)
-    set_host(domain.host)
+    user = user_at_test_domain
 
     page1 = create(:page, user: user, order: 1)
     page2 = create(:page, user: user, order: 2)
@@ -21,9 +19,7 @@ feature "User swaps page order" do
   end
 
   scenario "Same order selected twice" do
-    user = create(:user)
-    domain = create(:domain, user: user)
-    set_host(domain.host)
+    user = user_at_test_domain
 
     page1 = create(:page, user: user, order: 1)
     page2 = create(:page, user: user, order: 2)

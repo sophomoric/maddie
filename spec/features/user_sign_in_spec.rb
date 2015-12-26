@@ -19,9 +19,7 @@ feature "Sign in" do
   end
 
   scenario "Email not registered" do
-    user = create(:user)
-    domain = create(:domain, user: user)
-    set_host(domain.host)
+    user = user_at_test_domain
     user.password = "not correct"
 
     sign_in(user)
