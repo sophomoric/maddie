@@ -6,32 +6,32 @@ describe Page do
   it { should validate_presence_of(:order) }
   it { should validate_uniqueness_of(:order) }
   it { should validate_presence_of(:url_key) }
-  it { should belong_to :user }
+  it { should belong_to :domain }
 
   describe "unique url_keys" do
-    it "does not allow user to have a page with same url key" do
-      user = create(:user)
-      user_2 = create(:user)
+    it "does not allow a domain to have a page with same url key" do
+      domain = create(:domain)
+      domain_2 = create(:domain)
 
-      create(:page, url_key: "test", user: user)
-      page = build(:page, url_key: "test", user: user)
+      create(:page, url_key: "test", domain: domain)
+      page = build(:page, url_key: "test", domain: domain)
 
       expect(page).to_not be_valid
 
-      page.user = user_2
+      page.domain = domain_2
       expect(page).to be_valid
     end
 
     it "does not allow pages to have the same order" do
-      user = create(:user)
-      user_2 = create(:user)
+      domain = create(:domain)
+      domain_2 = create(:domain)
 
-      create(:page, user: user, order: 1)
-      page = build(:page, user: user, order: 1)
+      create(:page, domain: domain, order: 1)
+      page = build(:page, domain: domain, order: 1)
 
       expect(page).to_not be_valid
 
-      page.user = user_2
+      page.domain = domain_2
       expect(page).to be_valid
     end
 

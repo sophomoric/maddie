@@ -5,13 +5,14 @@ class Page < ActiveRecord::Base
 
   validates :title, presence: true
   validates :body, presence: true
-  validates :order, presence: true, uniqueness: { scope: :user_id }
+  validates :order, presence: true, uniqueness: { scope: :domain_id }
   validates(
     :url_key,
     presence: true,
-    uniqueness: { scope: :user_id },
+    uniqueness: { scope: :domain_id },
     exclusion: { in: RESERVED_WORDS }
   )
 
+  belongs_to :domain
   belongs_to :user
 end

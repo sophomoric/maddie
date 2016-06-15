@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   validates :url_key, presence: true, uniqueness: { scope: :user_id }
 
   belongs_to :user
+  belongs_to :domain
 
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos
