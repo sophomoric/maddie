@@ -58,5 +58,17 @@ describe PageOrderer do
       expect(page_orderer.page_after(second_page)).to eq(third_page)
       expect(page_orderer.page_after(third_page)).to eq(first_page)
     end
+
+    it "ignores hidden pages" do
+      user = create(:user)
+      create(:domain, user: user, host: "test")
+      first_page = create(:page, user: user)
+      _second_page_hidden = create(:page, user: user, hidden: true)
+      third_page = create(:page, user: user)
+
+      page_orderer = PageOrderer.new(user.reload)
+
+      expect(page_orderer.page_after(first_page)).to eq(third_page)
+    end
   end
 end
