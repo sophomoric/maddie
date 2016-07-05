@@ -2,6 +2,7 @@ class Photo < ActiveRecord::Base
   include AttachAvatar
   include Croppable
   belongs_to :project
+  belongs_to :domain
   has_one :user, through: :project
 
   def suggested_photo_based_on_size
