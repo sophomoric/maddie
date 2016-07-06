@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_domain
-    current_user && current_user.domains.where(host: request.host).first
+    @current_user_domain ||=
+      current_user && current_user.domains.where(host: request.host).first
   end
 
   def domain
@@ -22,6 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method(
+    :domain,
     :current_user_domain,
     :ensure_domain_has_user!,
     :user_by_domain,

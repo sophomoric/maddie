@@ -3,7 +3,7 @@ user = User.create(
   password: "12345678",
 )
 
-Domain.create(
+domain = Domain.create(
   host: "localhost",
   page_title: "Development",
   user: user
@@ -17,7 +17,7 @@ bodies = ["Never", "Five Fingers Five Toes Five Problems", "My Brother"]
     title: titles[o],
     body: bodies[o],
     order: (o + 1),
-    user_id: user.id,
+    domain_id: domain.id,
     url_key: titles[o]
   )
 end

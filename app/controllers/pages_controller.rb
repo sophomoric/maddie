@@ -2,16 +2,15 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @page = PageOrderer.new(user_by_domain).next_page
+    @page = PageOrderer.new(current_user_domain).next_page
   end
 
   def index
-    @page = PageOrderer.new(user_by_domain).next_page
     render_pages
   end
 
   def create
-    @page = current_user.pages.new(page_params)
+    @page = current_user_domain.pages.new(page_params)
     if @page.save
       flash[:messages] = ["Page Saved"]
       redirect_to pages_url
@@ -22,11 +21,11 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @page = current_user.pages.find(params[:id])
+    @page = current_user_domain.pages.find(params[:id])
   end
 
   def update
-    @page = current_user.pages.find(params[:id])
+    @page = current_user_domain.pages.find(params[:id])
     if @page.update(page_params)
       flash[:messages] = ["Page Updated"]
       redirect_to pages_url
@@ -37,7 +36,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    page = current_user.pages.find(params[:id])
+    page = current_user_domain.pages.find(params[:id])
     page.destroy
     redirect_to pages_url
   end
@@ -45,15 +44,17 @@ class PagesController < ApplicationController
   private
 
   def authenticate_user!
-    if user_signed_in? && current_user != user_by_domain
-      redirect_to :root, alert: ["You do not have permission to edit that!"]
-    else
+    if !current_user
       super
+    elsif current_user_domain
+      true
+    else
+      redirect_to :root, alert: ["You do not have permission to edit that!"]
     end
   end
 
   def render_pages
-    @pages = PageOrderer.new(user_by_domain).pages
+    @pages = current_user_domain.pages
     render "index"
   end
 

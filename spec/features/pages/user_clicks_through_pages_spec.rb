@@ -3,10 +3,11 @@ require "rails_helper"
 feature "User navigates through pages" do
   scenario do
     user = user_at_test_domain
-    first_page = create(:page, user: user, body: "first")
-    second_page = create(:page, user: user, body: "second")
-    third_page = create(:page, user: user, body: "third")
-    fourth_hidden_page = create(:page, user: user, body: "fourth", hidden: true)
+    domain = user.domains.first
+    first_page = create(:page, domain: domain, body: "first")
+    second_page = create(:page, domain: domain, body: "second")
+    third_page = create(:page, domain: domain, body: "third")
+    fourth_hidden_page = create(:page, domain: domain, body: "fourth", hidden: true)
 
     visit root_url
 

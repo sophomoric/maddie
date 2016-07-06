@@ -6,12 +6,12 @@
   <div class="paginate clearfix">
     <%= link_to(
       "<",
-      "/#{ PageOrderer.new(user_by_domain).page_before(@page).url_key }",
+      "/#{ PageOrderer.new(domain).page_before(@page).url_key }",
       class: "pull-left"
     ) %>
     <%= link_to(
       ">",
-      "/#{ PageOrderer.new(user_by_domain).page_after(@page).url_key }",
+      "/#{ PageOrderer.new(domain).page_after(@page).url_key }",
       class: "pull-right"
     ) %>
   </div>

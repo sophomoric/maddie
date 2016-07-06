@@ -3,7 +3,8 @@ require "rails_helper"
 feature "User views a Project" do
   scenario "project lives at specified url" do
     user = user_at_test_domain
-    project = create(:project, url_key: "poo-art", user: user)
+    domain = user.domains.first
+    project = create(:project, url_key: "poo-art", domain: domain)
     visit "/projects/poo-art"
 
     expect(page).to have_text(project.title)

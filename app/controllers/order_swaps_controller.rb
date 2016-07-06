@@ -2,11 +2,11 @@ class OrderSwapsController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @pages = PageOrderer.new(current_user).pages
+    @pages = PageOrderer.new(current_user_domain).pages
   end
 
   def create
-    if OrderSwap.new(order_swap_params, current_user).save
+    if OrderSwap.new(order_swap_params, current_user_domain).save
       flash[:messages] = ["Order Swapped!"]
     else
       flash[:errors] = ["Failed to swap the order :( "]

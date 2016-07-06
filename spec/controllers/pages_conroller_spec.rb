@@ -5,7 +5,7 @@ describe PagesController do
 
   before do
     @user = create(:user)
-    create(:domain, host: "test.host")
+    @domain = create(:domain, host: "test.host", user: @user)
   end
 
   describe "GET index" do
@@ -40,7 +40,7 @@ describe PagesController do
   describe "Page Update" do
     it "updates a page" do
       sign_in_and_stub(@user)
-      page = create(:page, user: @user)
+      page = create(:page, domain: @domain)
       attributes =  { title: "Beep", body: "Boop" }
 
       post :update, page: attributes, id: page.id
@@ -50,7 +50,7 @@ describe PagesController do
 
     it "renders edit template if errors are present" do
       sign_in_and_stub(@user)
-      page = create(:page, user: @user)
+      page = create(:page, domain: @domain)
       attributes =  { url_key: nil }
 
       post :update, page: attributes, id: page.id
@@ -62,7 +62,7 @@ describe PagesController do
   describe "Page Destroy" do
     it "destroys a page" do
       sign_in_and_stub(@user)
-      page = create(:page, user: @user)
+      page = create(:page, domain: @domain)
 
       post :destroy, { id: page.id }
 

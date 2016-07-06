@@ -1,7 +1,7 @@
 class OrderSwap
-  def initialize(params, user)
+  def initialize(params, domain)
     @params = params
-    @user = user
+    @domain = domain
   end
 
   def save
@@ -25,8 +25,8 @@ class OrderSwap
   private
 
   def pages
-    @_pages ||= user.pages.where(id: params.keys)
+    @_pages ||= domain.pages.where(id: params.keys)
   end
 
-  attr_reader :params, :user
+  attr_reader :params, :domain
 end

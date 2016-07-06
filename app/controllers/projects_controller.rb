@@ -3,11 +3,11 @@ class ProjectsController < ApplicationController
   before_filter :ensure_domain_has_user!
 
   def new
-    @project = Project.build
+    @project = current_user_domain.projects.build
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user_domain.projects.new(project_params)
 
     if @project.save
       flash[:messages] = ["Project Saved"]
@@ -19,15 +19,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = user_by_domain.projects.find_by_url_key!(params[:url_key])
+    @project = domain.projects.find_by_url_key!(params[:url_key])
   end
 
   def edit
-    @project = current_user.projects.find_by_url_key!(params[:id])
+    @project = current_user_domain.projects.find_by_url_key!(params[:id])
   end
 
   def update
-    @project = current_user.projects.find_by_url_key(params[:id])
+    @project = current_user_domain.projects.find_by_url_key(params[:id])
 
     if @project.update(project_params)
       flash[:messages] = ["Project Updated"]
@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = user_by_domain.projects.includes(:photos)
+    @projects = domain.projects.includes(:photos)
   end
 
   private

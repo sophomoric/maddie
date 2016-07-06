@@ -15,7 +15,7 @@ feature "Sign in" do
     set_host("something")
     sign_in(user)
 
-    expect(page).to have_text("Signed in successfully")
+    expect(page).to have_text("You need at least one domain")
   end
 
   scenario "Email not registered" do

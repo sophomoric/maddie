@@ -17,7 +17,7 @@ describe ProjectsController do
     context "error on save" do
       it "renders the new page with an error" do
         sign_in(user)
-        user.projects.create(title: "Tiffan", description: "")
+        domain.projects.create(title: "Tiffan", description: "")
         # duplicate post
         post :create, project: { title: "Tiffan", description: "Tot" }
 
@@ -35,7 +35,7 @@ describe ProjectsController do
           url_key: "tot"
         }
 
-        expect(response).to redirect_to "/projects/#{user.projects.last.url_key}"
+        expect(response).to redirect_to "/projects/#{domain.projects.last.url_key}"
       end
     end
   end
@@ -51,7 +51,7 @@ describe ProjectsController do
   describe "POST #update" do
     it "updates the project" do
       sign_in(user)
-      project = create(:project, title: "Dog", user: user)
+      project = create(:project, title: "Dog", domain: domain)
       changes = { title: "Cat" }
 
       post :update, project: changes, id: project.url_key
