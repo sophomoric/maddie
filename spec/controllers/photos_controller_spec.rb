@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe PhotosController do
+  include AuthHelper
+
   def set_http_referrer
     request.env["HTTP_REFERER"] = "www.some_project.url"
   end

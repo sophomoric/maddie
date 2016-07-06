@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe PagesController do
+  include AuthHelper
+
   before do
     @user = create(:user)
     create(:domain, host: "test.host")
