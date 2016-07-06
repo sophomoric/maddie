@@ -36,3 +36,6 @@ Wish list of features:
   * Pretty codeblocks
   * Large photo upload solution
   * Https (free certs available!)
+  * Setup app with docker or vagrant
+  * Allow meta properties for domain like `og:image` so facebook sharing is
+    better (probably one table for each domain that is pulled from for layout)
