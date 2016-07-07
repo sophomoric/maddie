@@ -15,7 +15,7 @@ RSpec.describe WelcomeController do
         wrong_user = create(:user)
         create(:domain, host: "other.domain", user: wrong_user)
         create(:page, user: wrong_user, url_key: "2")
-        page = create(:page, user: test_user, url_key: "1")
+        page = create(:page, domain: test_user.domains.first, url_key: "1")
 
         get :show, url_key: page.url_key
 

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def ensure_domain_has_user!
-    redirect_to root_url unless user_by_domain
+    redirect_to new_domain_url unless user_by_domain
   end
 
   def user_by_domain
