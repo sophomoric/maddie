@@ -8,6 +8,10 @@
     <%= csrf_meta_tags %>
     <%= favicon_link_tag "favicon.png" %>
     <meta name="viewport" content="width=600, maximum-scale=1">
+    <%= render(
+      partial: "layouts/facebook_og",
+      locals: { meta_property_list: domain.meta_property_list }
+    ) if domain.try(:meta_property_list) %>
   </head>
   <body>
     <div class="container-fluid">

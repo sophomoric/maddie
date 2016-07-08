@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :previews, only: [:create]
 
   resources :users, only: [:edit, :update]
+  resources :meta_property_lists, only: [:new, :create, :edit, :update]
 
   resources :order_swaps, only: [:new, :create]
 
