@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def domain
-    @domain ||= Domain.find_by_host(request.host)
+    @domain ||= Domain.includes(:meta_property_list).find_by_host(request.host)
   end
 
   def page_title
