@@ -11,6 +11,10 @@
     @include text-sizing($text-size, 1.0);
   }
 
+  div a {
+    display: block;
+  }
+
   li a {
     display:block;
   }
