@@ -1,6 +1,6 @@
 $(function(){
-  var $message = $("#page_body");
-  var $previewBox = $(".page-body");
+  var $message = $(".preview-message");
+  var $previewBox = $(".preview-box");
   var previewPlaceholder = $previewBox.html()
   var lastResponseMarkdown = previewPlaceholder;
   var lastTextSent = $message.val();

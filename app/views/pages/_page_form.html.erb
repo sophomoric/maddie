@@ -1,6 +1,6 @@
 <%= simple_form_for(page) do |f| %>
   <%= f.input :title %>
-  <%= f.input :body %>
+  <%= f.input :body, input_html: { class: "preview-message" } %>
   <%= f.input :order %>
   <%= f.input :hidden, as: :select %>
   <%= f.input :url_key %>
