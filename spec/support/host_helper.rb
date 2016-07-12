@@ -1,4 +1,9 @@
 module HostHelper
+  def clear_host_settings
+    default_url_options[:host] = "www.example.com"
+    Capybara.app_host = nil
+  end
+
   def set_host(host)
     default_url_options[:host] = host
     Capybara.app_host = "http://" + host

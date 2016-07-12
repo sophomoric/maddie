@@ -19,11 +19,4 @@ feature "User creates root content", js: true do
 
     expect(page).to have_css("h1", text: "Oh my root")
   end
-
-  private
-
-  def clear_host_settings
-    default_url_options[:host] = "www.example.com"
-    Capybara.app_host = nil
-  end
 end
