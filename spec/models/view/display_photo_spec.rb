@@ -1,3 +1,5 @@
+require "rails_helper"
+
 describe View::DisplayPhoto do
   let(:project) { create(:project) }
 
@@ -40,7 +42,8 @@ describe View::DisplayPhoto do
       params = {}
 
       image_url = View::DisplayPhoto.new(project, params).photo_url(photo)
-      expect(image_url.include?("photos/#{photo.id}")).to eq(true)
+      expect(image_url).to include(project_path(project))
+      expect(image_url).to include(photo.id.to_s)
     end
   end
 end
