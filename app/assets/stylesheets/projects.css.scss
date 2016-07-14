@@ -1,7 +1,6 @@
 /*show*/
-.project-show {
+.projects {
   .project-photo-thumbs {
-
     img {
       height: 50px;
       overflow: hidden;
@@ -16,31 +15,6 @@
   .main-photo {
     display: block;
     width: 300px;
-  }
-
-  .photo-thumb {
-    margin: 10px;
-  }
-}
-
-/*INDEX PAGE*/
-.project-index {
-  section.project-thumbs {
-    width: 30%;
-    float: left;
-  }
-  
-  margin: auto;
-  .photo-container {
-    display: inline-block;
-    float: left;
-    width: 100px;
-    height: 100px;
-  }
-
-  .photo-thumb {
-    margin-left: 10px;
-    margin-bottom: 10px;
   }
 
   .photo-medium {
