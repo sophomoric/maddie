@@ -1,26 +1,21 @@
-<div class="project-index">
-  <section class="project-thumbs">
+<div class="projects">
+  <ul class="nav nav-stacked text-center">
     <% @projects.each do |project| %>
-        <% project.photos.each do |photo| %>
-          <div class="photo-container">
-            <div class="photo-thumb">
-              <%= link_to project_url(project, photo_id: photo.id) do %>
-                <%= image_tag(photo.avatar(:thumb)) %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+      <li>
+        <%= link_to project.title, project_url(project) %>
+      </li>
     <% end %>
-  </section>
-  <section>
+  </ul>
+
+  <ul class="project-photo-thumbs nav nav-pills">
     <% @projects.each do |project| %>
-          <div class="medium-container">
-            <div class="photo-medium">
-              <%= link_to project_url(project) do %>
-                <%= image_tag(project.avatar(:medium)) %>
-              <% end %>
-            </div>
-          </div>
-    <% end %> 
-  </section>
+      <% project.photos.each do |photo| %>
+        <li class="photo">
+        <%= link_to project_url(project, photo_id: photo.id) do %>
+          <%= image_tag(photo.avatar(:thumb)) %>
+        <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
