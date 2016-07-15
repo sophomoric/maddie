@@ -1,0 +1,26 @@
+.file {
+  input {
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
+  }
+
+  label {
+    background-color: $black;
+    border-radius: 3px;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.25em;
+    font-weight: 700;
+    padding: 3px;
+
+    &:focus,
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}
