@@ -1,37 +1,35 @@
 class PageOrderer
-  def initialize(domain)
-    @domain = domain
-    raise unless domain
+  def initialize(pages)
+    @pages = pages
   end
 
   def visible_pages
-    ordered_pages.where(hidden: false)
+    @_visible_pages ||= pages.visible.ordered
   end
 
-  def next_page
-    order = if visible_pages.any?
-              visible_pages.maximum(:order) + 1
-            else
-              1
-            end
-    domain.pages.new(order: order)
+  def new_page
+    pages.new(order: next_page_number)
   end
 
   def page_after(page)
-    visible_pages.where("pages.order > ?", page.order).first ||
+    visible_pages.pages_after(page).first ||
       visible_pages.first
   end
 
   def page_before(page)
-    visible_pages.where("pages.order < ?", page.order).last ||
+    visible_pages.pages_before(page).last ||
       visible_pages.last
   end
 
   private
 
-  attr_reader :domain
+  attr_reader :pages
 
-  def ordered_pages
-    @ordered_pages ||= domain.pages.order(:order)
+  def next_page_number
+    1 + (highest_visible_page_number || 0)
+  end
+
+  def highest_visible_page_number
+    visible_pages.maximum(:order)
   end
 end

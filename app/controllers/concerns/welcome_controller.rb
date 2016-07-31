@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
       flash[:messages] = ["You need at least one domain"]
       redirect_to edit_user_path(current_user)
     elsif domain
-      @pages = PageOrderer.new(domain).visible_pages
+      @pages = PageOrderer.new(domain.pages).visible_pages
     else
       redirect_to new_user_session_path
     end

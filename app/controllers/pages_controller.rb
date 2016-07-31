@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @page = PageOrderer.new(current_user_domain).next_page
+    @page = PageOrderer.new(current_user_domain.pages).new_page
   end
 
   def index

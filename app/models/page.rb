@@ -15,4 +15,20 @@ class Page < ActiveRecord::Base
 
   belongs_to :domain
   belongs_to :user
+
+  def self.visible
+    where(hidden: false)
+  end
+
+  def self.ordered
+    order(:order)
+  end
+
+  def self.pages_after(page)
+    where("pages.order > ?", page.order)
+  end
+
+  def self.pages_before(page)
+    where("pages.order < ?", page.order)
+  end
 end

@@ -2,7 +2,7 @@
   <li class="col-xs-4">
     <%= link_to(
       "&lt;".html_safe,
-      "/#{ PageOrderer.new(domain).page_before(@page).url_key }"
+      "/#{ PageOrderer.new(domain.pages).page_before(@page).url_key }"
     ) %>
   </li>
   <li class="col-xs-4">
@@ -11,7 +11,7 @@
   <li class="col-xs-4">
     <%= link_to(
       "&gt;".html_safe,
-      "/#{ PageOrderer.new(domain).page_after(@page).url_key }"
+      "/#{ PageOrderer.new(domain.pages).page_after(@page).url_key }"
     ) %>
   </li>
 

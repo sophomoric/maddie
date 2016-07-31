@@ -2,7 +2,7 @@ class OrderSwapsController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @pages = PageOrderer.new(current_user_domain).visible_pages
+    @pages = PageOrderer.new(current_user_domain.pages).visible_pages
   end
 
   def create
