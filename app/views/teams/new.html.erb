@@ -7,3 +7,12 @@
 
 <h1>Teams:<h1>
 <%= @markup %>
+
+<script>
+  $("form").on("submit", function(e){
+    var text = $("#team_text").val()
+    if (text.indexOf("Andy") >= 0) {
+      alert("Are you sure you want to include Andy?")
+    }
+  });
+</script>

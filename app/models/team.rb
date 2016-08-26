@@ -4,16 +4,22 @@ class Team
   end
 
   def markup
-    markup = ""
-    until @names.empty?
-      markup += pair(@names.pop(2))
-    end
-    markup.html_safe
+    @names.each_slice(2).map do |partners|
+      pair(partners)
+    end.join.html_safe
   end
 
   private
 
-  def pair(two_names)
-    "<p>#{two_names.first} and #{two_names.last}</p>"
+  def pair(names)
+    "<p>" + text(names) + "</p>"
+  end
+
+  def text(names)
+    if names.count == 2
+      "#{names.first} and #{names.last}"
+    elsif names.count == 1
+      "#{names.first} is alone. Sorry, buddy."
+    end
   end
 end
