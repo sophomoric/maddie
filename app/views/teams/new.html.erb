@@ -1,0 +1,9 @@
+<h1>List Names</h1>
+
+<%= simple_form_for :team, url: "/teams/" do |f| %>
+  <%= f.input :text %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<h1>Teams:<h1>
+<%= @markup %>

@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   get "projects/crop/:id" => 'projects#crop'
   get "crop/:id" => 'photos#crop'
+
+  resources :teams, only: [:new, :create]
 end
