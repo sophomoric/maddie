@@ -2,7 +2,11 @@
   <%= f.input :og_image %>
   <%= f.input :og_title %>
   <%= f.input :og_url %>
-  <%= f.input :root_content, input_html: { class: "preview-message" } %>
+  <%= f.input(
+    :root_content,
+    input_html: { class: "preview-message" },
+    placeholder: "If this field is blank the default menu will appear"
+  ) %>
   <%= f.submit %>
 <% end %>
 
