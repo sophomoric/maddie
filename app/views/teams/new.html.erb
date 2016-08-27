@@ -1,8 +1,13 @@
 <h1>List Names</h1>
 
 <%= simple_form_for :team, url: "/teams/" do |f| %>
-  <%= f.input :text %>
-  <%= f.submit "Submit" %>
+  <%= f.input(
+    :text,
+    placeholder: "list first names separated by spaces...",
+    label: false,
+    as: :text
+  ) %>
+  <%= f.submit "Create Teams" %>
 <% end %>
 
 <h1>Teams:<h1>
