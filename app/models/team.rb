@@ -1,15 +1,16 @@
 class Team
   ADJECTIVES = %w(
     B-to-the-S-to-the- Exploding Shooting Super Deadly Fighting Lightening-quick
-    Fiery Hideous Mysterious Dangerous
+    Fiery Hideous Mysterious Dangerous Movie-watching
   )
   NOUNS = %w(
     Monsters Phoenixes Dragons Longshots Blades Spirits Warriors Breadman Mages 
-    Programmers Paige-Pipers Godesses
+    Programmers Paige-Pipers Godesses Robbies Trivia-Savants
   )
 
-  def initialize(names)
+  def initialize(names, team_size = 2)
     @names = names.split(" ").shuffle!
+    @team_size = team_size.to_i
   end
 
   def markup
@@ -21,7 +22,7 @@ class Team
   private
 
   def generate_team_markup(adjectives, nouns)
-    @names.each_slice(2).map do |partners|
+    @names.each_slice(@team_size).map do |partners|
       team_name = create_team_name(adjectives.pop, nouns.pop)
       pair(partners, team_name)
     end.join
@@ -36,10 +37,6 @@ class Team
   end
 
   def text(names)
-    if names.count == 2
-      "#{names.first} and #{names.last}"
-    elsif names.count == 1
-      "#{names.first} is alone. Sorry, buddy"
-    end
+    names.join(", ")
   end
 end
