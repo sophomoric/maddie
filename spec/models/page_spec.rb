@@ -4,9 +4,14 @@ describe Page do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:order) }
-  it { should validate_uniqueness_of(:order) }
   it { should validate_presence_of(:url_key) }
   it { should belong_to :domain }
+
+  it "validates uniqueness of order" do
+    page = create(:page, order: 1)
+
+    expect(page).to validate_uniqueness_of(:order).scoped_to(:domain_id)
+  end
 
   describe "unique url_keys" do
     it "does not allow a domain to have a page with same url key" do

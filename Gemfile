@@ -42,7 +42,7 @@ gem "simple_form"
 
 group :development, :test do
   gem "pry-rails"
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem "database_cleaner"

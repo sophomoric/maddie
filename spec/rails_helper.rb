@@ -8,6 +8,13 @@ require "support/factory_girl"
 require "support/host_helper"
 require 'shoulda/matchers'
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 ActiveRecord::Migration.check_pending!
 
 RSpec.configure do |config|
