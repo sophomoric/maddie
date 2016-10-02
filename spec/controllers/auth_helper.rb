@@ -1,6 +1,6 @@
 module AuthHelper
   def sign_in_and_stub(user)
-    sign_in :user, user
+    sign_in(user, scope: :user)
     allow(controller).to receive(:user_by_domain) { user }
   end
 

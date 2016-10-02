@@ -22,7 +22,7 @@ RSpec.configure do |config|
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include HostHelper, type: :feature
   config.infer_spec_type_from_file_location!
 end

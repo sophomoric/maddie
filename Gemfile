@@ -30,10 +30,8 @@ group :development do
   gem "bullet"
 end
 
-gem "backbone-on-rails"
-
-gem "paperclip"
-gem 'aws-sdk', '< 2.0'
+gem "paperclip", "~> 4.3.1"
+gem "aws-sdk", "~> 1.5.8"
 gem "dotenv-rails"
 
 gem 'devise'
