@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
+gem "bundler-audit"
+
 gem 'rails'
 gem 'pg'
 
@@ -56,5 +58,5 @@ gem "redcarpet"
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
+gem "capistrano-rbenv"
 
