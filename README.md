@@ -1,4 +1,7 @@
-# Maddie
+# Maddie [![Build Status](https://travis-ci.org/sophomoric/maddie.svg?branch=master)](https://travis-ci.org/sophomoric/maddie)
+[![Code Climate](https://codeclimate.com/github/sophomoric/maddie/badges/gpa.svg)](https://codeclimate.com/github/sophomoric/maddie)
+[![Test Coverage](https://codeclimate.com/github/sophomoric/maddie/badges/coverage.svg)](https://codeclimate.com/github/sophomoric/maddie/coverage)
+[![Issue Count](https://codeclimate.com/github/sophomoric/maddie/badges/issue_count.svg)](https://codeclimate.com/github/sophomoric/maddie)
 
 A web app for uploading and displaying custom content.
 
