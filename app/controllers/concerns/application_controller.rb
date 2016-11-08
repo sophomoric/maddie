@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_filter :authenticate_protected_page!
+
+  def authenticate_protected_page!
+    authenticate_user! if protected_domain?
+  end
 
   def ensure_domain_has_user!
     redirect_to new_domain_url unless user_by_domain
@@ -29,4 +34,10 @@ class ApplicationController < ActionController::Base
     :user_by_domain,
     :page_title
   )
+
+  private
+
+  def protected_domain?
+    domain.try(:meta_property_list).try(:password_protected?)
+  end
 end

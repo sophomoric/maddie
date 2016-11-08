@@ -46,6 +46,6 @@ class MetaPropertyListsController < ApplicationController
   def meta_property_list_params
     params.
       require(:meta_property_list).
-      permit(:og_image, :og_title, :og_url, :root_content)
+      permit(:og_image, :og_title, :og_url, :root_content, :password_protected)
   end
 end
