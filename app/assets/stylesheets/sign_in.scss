@@ -3,4 +3,13 @@
     text-align: center;
     font-size: 50px;
   }
+
+  .checkbox {
+    font-size: $font-size * 0.9;
+
+    input {
+      margin: 0;
+      position: static;
+    }
+  }
 }
