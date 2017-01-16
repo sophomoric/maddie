@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  force_ssl if: :ssl_configured?
   protect_from_forgery with: :exception
   before_filter :authenticate_protected_page!
 
@@ -34,6 +35,10 @@ class ApplicationController < ActionController::Base
     :user_by_domain,
     :page_title
   )
+
+  def ssl_configured?
+    Rails.env.production?
+  end
 
   private
 
