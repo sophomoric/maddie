@@ -44,4 +44,4 @@ Wish list of features:
   * Pretty codeblocks
   * Large photo upload solution
   * Https (free certs available!)
-  * Setup app with docker or vagrant
+  * Setup app with docker or vagrant.
